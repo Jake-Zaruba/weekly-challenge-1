@@ -4,9 +4,10 @@ import NewExpense from "./components/NewExpense";
 import Balance from "./components/Balance";
 
 function App() {
-  const [deposit, setDeposit] = useState(0);
+  const [deposit, setDeposit] = useState("");
   const [deposits, setDeposits] = useState([]);
-  const [expense, setExpense] = useState(0);
+  const [expense, setExpense] = useState("");
+  const [total, setTotal] = useState(0);
 
   function calculateTotal() {
     setDeposits((prev) => [...prev, deposit]);
@@ -15,9 +16,10 @@ function App() {
   }
 
   function getTotal() {
-    deposits.reduce((a, b) => {
-      return a + b;
+    const sum = deposits.reduce((a, b) => {
+      return a + parseInt(b);
     }, 0);
+    setTotal(sum);
   }
 
   return (
@@ -28,7 +30,7 @@ function App() {
         setDeposit={setDeposit}
       />
       <NewExpense />
-      <Balance getTotal={getTotal} />
+      <Balance getTotal={getTotal} total={total} />
     </div>
   );
 }
