@@ -4,11 +4,11 @@ import NewExpense from "./components/NewExpense";
 import Balance from "./components/Balance";
 
 function App() {
-  const [deposit, setDeposit] = useState("");
-  const [deposits, setDeposits] = useState([]);
   const [expense, setExpense] = useState("");
   const [expenses, setExpenses] = useState([]);
   const [total, setTotal] = useState(0);
+  const [deposit, setDeposit] = useState("");
+  const [deposits, setDeposits] = useState([]);
 
   function addDeposit() {
     if (!deposit) {
