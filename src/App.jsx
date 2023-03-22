@@ -32,13 +32,14 @@ function App() {
   }
 
   function getTotal() {
-    const sum = deposits.reduce((a, b) => {
-      return a + parseInt(b);
-    }, 0);
-    const difference = expenses.reduce((a, b) => {
-      return a + parseInt(b);
-    }, 0);
-    setTotal(sum + difference);
+    // const sum = deposits.reduce((a, b) => {
+    //   return a + parseInt(b);
+    // }, 0);
+    // const difference = expenses.reduce((a, b) => {
+    //   return a + parseInt(b);
+    // }, 0);
+    // const newTotal = sum + difference;
+    setTotal((prev) => prev + deposit - expense * -1);
   }
 
   return (
