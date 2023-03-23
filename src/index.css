@@ -21,15 +21,6 @@
   text-align: center;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
 /* body {
   margin: 0;
   display: flex;
@@ -48,7 +39,7 @@ h1 {
 button {
   border-radius: 8px;
   border: 1px solid #333;
-  padding: 0.6em 1.2em;
+  /* padding: 0.6em 1.2em; */
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
@@ -85,22 +76,42 @@ button:focus-visible {
   gap: 2rem;
 }
 
-.deposits-container {
-  border: 1px solid #333;
-  height: 2rem;
-  width: 8rem;
+.deposits-container,
+.new-expense-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 6rem;
+  width: 18rem;
   padding: 1rem;
+  border-radius: 8px;
+  border: 1px solid #333;
+}
+
+.deposits-container button,
+.new-expense-container button {
+  width: 3rem;
+  height: 6rem;
+  border-radius: 50%;
+}
+
+.deposits-container {
 }
 
 .new-expense-container {
-  border: 1px solid #333;
-  height: 2rem;
-  width: 8rem;
-  padding: 1rem;
 }
 
 .balance-container {
-  border: 1px solid #333;
   height: 60vh;
   width: 80vw;
+  border-radius: 8px;
+  border: 1px solid #333;
+}
+
+input {
+  border-radius: 8px;
+  height: 6rem;
+  border: none;
+  background-color: #c4ffca;
+  text-align: center;
 }
