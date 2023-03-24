@@ -13,9 +13,11 @@ function App() {
   const [expenseDescription, setExpenseDescription] = useState("");
 
   function addDeposit() {
-    // if (!deposit || !description) {
-    //   return alert("Add a deposit");
-    // }
+    if (!deposit) {
+      return alert("Add a deposit");
+    } else if (!depositDescription) {
+      return alert("Add a description");
+    }
     const depositInfo = {
       id: Math.floor(Math.random() * 10000),
       amount: deposit,
@@ -30,6 +32,8 @@ function App() {
   function addExpense() {
     if (!expense) {
       return alert("Add an expense");
+    } else if (!expenseDescription) {
+      return alert("Add a description");
     }
     const expenseInfo = {
       id: Math.floor(Math.random() * 10000),

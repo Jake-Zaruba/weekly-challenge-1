@@ -9,24 +9,29 @@ export default function Deposits({
 }) {
   return (
     <div className="deposits-container">
-      <input
-        value={deposit}
-        onChange={(e) => {
-          setDeposit(Math.abs(e.target.value));
-        }}
-        type="number"
-        placeholder="Add deposit"
-      />
-      <input
-        value={description}
-        onChange={(e) => {
-          console.log(description);
-          setDescription(e.target.value);
-        }}
-        type="text"
-        placeholder="Description"
-      />
-      <button onClick={() => addDeposit()}>Add</button>
+      <form>
+        <input
+          className="value-input"
+          value={deposit}
+          onChange={(e) => {
+            setDeposit(Math.abs(e.target.value));
+          }}
+          type="number"
+          placeholder="$0"
+        />
+
+        <textarea
+          className="text-input"
+          value={description}
+          onChange={(e) => {
+            console.log(description);
+            setDescription(e.target.value);
+          }}
+          type="text"
+          placeholder="Description..."
+        />
+      </form>
+      <button onClick={() => addDeposit()}>+</button>
     </div>
   );
 }

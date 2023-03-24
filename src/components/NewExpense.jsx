@@ -9,19 +9,23 @@ export default function NewExpense({
 }) {
   return (
     <div className="new-expense-container">
-      <input
-        value={expense}
-        onChange={(e) => setExpense(Math.abs(e.target.value) * -1)}
-        type="number"
-        placeholder="Add expense"
-      />
-      <input
-        value={description}
-        onChange={(e) => setDescription(e.target.value)}
-        type="text"
-        placeholder="Description"
-      />
-      <button onClick={() => addExpense()}>Add</button>
+      <form>
+        <input
+          className="value-input"
+          value={expense}
+          onChange={(e) => setExpense(Math.abs(e.target.value) * -1)}
+          type="number"
+          placeholder="$0"
+        />
+        <textarea
+          className="text-input"
+          value={description}
+          onChange={(e) => setDescription(e.target.value)}
+          type="text"
+          placeholder="Description..."
+        />
+      </form>
+      <button onClick={() => addExpense()}>-</button>
     </div>
   );
 }
