@@ -5,6 +5,8 @@ export default function Balance({
   total,
   totalExpenses,
   totalDeposits,
+  deposits,
+  expenses,
 }) {
   return (
     <div className="balance-container">
@@ -16,8 +18,20 @@ export default function Balance({
         <strong>${totalDeposits}</strong>
       </span>
       <span className="total-expenses">
-        Expenses <br /> <strong>${totalExpenses}</strong>
+        Expenses <br /> <strong>${Math.abs(totalExpenses)}</strong>
       </span>
+      <div id="recent-deposit">
+        <h3>Recent</h3>
+        {deposits.map((item) => {
+          return <p key={item.id}>{item.description}</p>;
+        })}
+      </div>
+      <div id="recent-expense">
+        <h3>Recent</h3>
+        {expenses.map((item) => {
+          return <p key={item.id}>{item.description}</p>;
+        })}
+      </div>
     </div>
   );
 }

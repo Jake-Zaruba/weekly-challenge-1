@@ -9,13 +9,21 @@ function App() {
   const [expense, setExpense] = useState("");
   const [expenses, setExpenses] = useState([]);
   const [total, setTotal] = useState(0);
+  const [depositDescription, setDepositDescription] = useState("");
+  const [expenseDescription, setExpenseDescription] = useState("");
 
   function addDeposit() {
-    if (!deposit) {
-      return alert("Add a deposit");
-    }
-    setDeposits((prev) => [...prev, deposit]);
+    // if (!deposit || !description) {
+    //   return alert("Add a deposit");
+    // }
+    const depositInfo = {
+      id: Math.floor(Math.random() * 10000),
+      amount: deposit,
+      description: depositDescription,
+    };
+    setDeposits((prev) => [...prev, depositInfo]);
     getTotal();
+    setDepositDescription("");
     setDeposit("");
   }
 
@@ -23,8 +31,14 @@ function App() {
     if (!expense) {
       return alert("Add an expense");
     }
-    setExpenses((prev) => [...prev, expense]);
+    const expenseInfo = {
+      id: Math.floor(Math.random() * 10000),
+      amount: expense,
+      description: expenseDescription,
+    };
+    setExpenses((prev) => [...prev, expenseInfo]);
     getTotal();
+    setExpenseDescription("");
     setExpense("");
     // console.log(expenses);
   }
@@ -40,33 +54,41 @@ function App() {
     setTotal((prev) => prev + deposit - expense * -1);
   }
 
-  const totalExpenses = expenses.reduce((a, b) => {
-    console.log(a + b);
-    return a + b;
+  const totalExpenses = expenses.reduce((acc, cur) => {
+    console.log(acc + cur.amount);
+    return acc + cur.amount;
   }, 0);
 
-  const totalDeposits = deposits.reduce((a, b) => {
-    console.log(a + b);
-    return a + b;
+  const totalDeposits = deposits.reduce((acc, cur) => {
+    console.log(deposits);
+    return acc + cur.amount;
   }, 0);
 
   return (
     <div className="App">
-      <Deposits
-        addDeposit={addDeposit}
-        deposit={deposit}
-        setDeposit={setDeposit}
-      />
-      <NewExpense
-        addExpense={addExpense}
-        expense={expense}
-        setExpense={setExpense}
-      />
+      <div className="expense-deposit-container">
+        <Deposits
+          addDeposit={addDeposit}
+          deposit={deposit}
+          setDeposit={setDeposit}
+          description={depositDescription}
+          setDescription={setDepositDescription}
+        />
+        <NewExpense
+          addExpense={addExpense}
+          expense={expense}
+          setExpense={setExpense}
+          description={expenseDescription}
+          setDescription={setExpenseDescription}
+        />
+      </div>
       <Balance
         getTotal={getTotal}
         total={total}
         totalExpenses={totalExpenses}
         totalDeposits={totalDeposits}
+        deposits={deposits}
+        expenses={expenses}
       />
     </div>
   );
