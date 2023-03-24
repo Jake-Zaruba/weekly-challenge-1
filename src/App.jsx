@@ -14,11 +14,9 @@ function App() {
     if (!deposit) {
       return alert("Add a deposit");
     }
-    console.log(deposit);
     setDeposits((prev) => [...prev, deposit]);
     getTotal();
     setDeposit("");
-    console.log(deposits);
   }
 
   function addExpense() {
@@ -28,7 +26,7 @@ function App() {
     setExpenses((prev) => [...prev, expense]);
     getTotal();
     setExpense("");
-    console.log(expenses);
+    // console.log(expenses);
   }
 
   function getTotal() {
@@ -42,6 +40,16 @@ function App() {
     setTotal((prev) => prev + deposit - expense * -1);
   }
 
+  const totalExpenses = expenses.reduce((a, b) => {
+    console.log(a + b);
+    return a + b;
+  }, 0);
+
+  const totalDeposits = deposits.reduce((a, b) => {
+    console.log(a + b);
+    return a + b;
+  }, 0);
+
   return (
     <div className="App">
       <Deposits
@@ -54,7 +62,12 @@ function App() {
         expense={expense}
         setExpense={setExpense}
       />
-      <Balance getTotal={getTotal} total={total} />
+      <Balance
+        getTotal={getTotal}
+        total={total}
+        totalExpenses={totalExpenses}
+        totalDeposits={totalDeposits}
+      />
     </div>
   );
 }

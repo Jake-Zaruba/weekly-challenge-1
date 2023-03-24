@@ -7,7 +7,6 @@ export default function Deposits({ deposit, setDeposit, addDeposit }) {
         value={deposit}
         onChange={(e) => {
           setDeposit(Math.abs(e.target.value));
-          console.log(deposit);
         }}
         type="number"
         placeholder="Add deposit"
