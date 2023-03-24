@@ -14,8 +14,7 @@ export default function Balance({
         <h4>Total Balance</h4>
         <h1>${total}</h1>
       </div>
-      {/* <button onClick={() => getTotal()}>Get total</button> */}
-      {/* <h2>{totalDeposits}</h2> */}
+
       <h4 className="total-deposits">
         Income <br />
         <p>${totalDeposits}</p>
@@ -32,13 +31,14 @@ export default function Balance({
             return (
               <div className="recent-item" key={item.id}>
                 <p>{item.description}</p>
-                &nbsp;&nbsp;&nbsp;&nbsp;
-                <b>${item.amount}</b>
+
+                <p>${item.amount}</p>
               </div>
             );
           })
         )}
       </div>
+
       <div id="recent-expense">
         <h4>Recent</h4>
         {expenses.length === 0 ? (
@@ -48,8 +48,8 @@ export default function Balance({
             return (
               <div className="recent-item" key={item.id}>
                 <p>{item.description}</p>
-                &nbsp;&nbsp;&nbsp;&nbsp;
-                <b>${Math.abs(item.amount)}</b>
+
+                <p>${Math.abs(item.amount)}</p>
               </div>
             );
           })
