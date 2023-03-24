@@ -8,11 +8,16 @@ export default function Balance({
 }) {
   return (
     <div className="balance-container">
-      <h1>${total}</h1>
+      <h1 className="total">${total}</h1>
       {/* <button onClick={() => getTotal()}>Get total</button> */}
       {/* <h2>{totalDeposits}</h2> */}
-      <h2>{totalExpenses}</h2>
-      <h2>{totalDeposits}</h2>
+      <span className="total-deposits">
+        Income <br />
+        <strong>${totalDeposits}</strong>
+      </span>
+      <span className="total-expenses">
+        Expenses <br /> <strong>${totalExpenses}</strong>
+      </span>
     </div>
   );
 }
