@@ -11,6 +11,9 @@ function App() {
   const [total, setTotal] = useState(0);
   const [depositDescription, setDepositDescription] = useState("");
   const [expenseDescription, setExpenseDescription] = useState("");
+  const [category, setCategory] = useState("");
+  const [categories, setCategories] = useState([]);
+  const [btnClicked, setBtnClicked] = useState(false);
 
   function addDeposit() {
     if (!deposit) {
@@ -39,9 +42,12 @@ function App() {
       id: Math.floor(Math.random() * 10000),
       amount: expense,
       description: expenseDescription,
+      category: category,
     };
+
     setExpenses((prev) => [...prev, expenseInfo]);
     getTotal();
+    setBtnClicked(true);
     setExpenseDescription("");
     setExpense("");
     // console.log(expenses);
@@ -84,6 +90,9 @@ function App() {
           setExpense={setExpense}
           description={expenseDescription}
           setDescription={setExpenseDescription}
+          category={category}
+          setCategory={setCategory}
+          btnClicked={btnClicked}
         />
       </div>
       <Balance

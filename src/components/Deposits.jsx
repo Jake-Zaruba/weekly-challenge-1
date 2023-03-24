@@ -31,7 +31,9 @@ export default function Deposits({
           placeholder="Description..."
         />
       </form>
-      <button onClick={() => addDeposit()}>+</button>
+      <button className="form-btn" onClick={() => addDeposit()}>
+        +
+      </button>
     </div>
   );
 }
