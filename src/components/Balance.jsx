@@ -1,4 +1,5 @@
 import React from "react";
+import PieChart from "./PieChart";
 
 export default function Balance({
   getTotal,
@@ -7,6 +8,7 @@ export default function Balance({
   totalDeposits,
   deposits,
   expenses,
+  getPercentage,
 }) {
   return (
     <div className="balance-container">
@@ -16,7 +18,7 @@ export default function Balance({
       </div>
 
       <h4 className="total-deposits">
-        Income <br />
+        Deposits <br />
         <p>${totalDeposits}</p>
       </h4>
       <h4 className="total-expenses">
@@ -38,7 +40,12 @@ export default function Balance({
           })
         )}
       </div>
-
+      <PieChart
+        total={total}
+        totalExpenses={totalExpenses}
+        totalDeposits={totalDeposits}
+        getPercentage={getPercentage}
+      />
       <div id="recent-expense">
         <h4>Recent</h4>
         {expenses.length === 0 ? (

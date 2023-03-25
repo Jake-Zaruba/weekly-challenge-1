@@ -7,8 +7,13 @@ export default function NewExpense({
   description,
   setDescription,
   category,
+  assignCategory,
   setCategory,
   btnClicked,
+  btn1,
+  btn2,
+  btn3,
+  btn4,
 }) {
   return (
     <div className="new-expense-container">
@@ -33,7 +38,7 @@ export default function NewExpense({
       </button>
       <div className="category-btn-container">
         <button
-          onClick={() => setCategory("Fun")}
+          onClick={() => assignCategory(btn1)}
           className={
             !btnClicked ? "category-btn" : "category-btn cat-1-animation"
           }
@@ -41,7 +46,7 @@ export default function NewExpense({
           🎉
         </button>
         <button
-          onClick={() => setCategory("Bills")}
+          onClick={() => assignCategory(btn2)}
           className={
             !btnClicked ? "category-btn" : "category-btn cat-2-animation"
           }
@@ -49,7 +54,7 @@ export default function NewExpense({
           🧾
         </button>
         <button
-          onClick={() => setCategory("Food")}
+          onClick={() => assignCategory(btn3)}
           className={
             !btnClicked ? "category-btn" : "category-btn cat-3-animation"
           }
@@ -57,7 +62,7 @@ export default function NewExpense({
           🍕
         </button>
         <button
-          onClick={() => setCategory("Transportation")}
+          onClick={() => assignCategory(btn4)}
           className={
             !btnClicked ? "category-btn" : "category-btn cat-4-animation"
           }

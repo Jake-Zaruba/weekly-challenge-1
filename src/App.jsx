@@ -44,7 +44,7 @@ function App() {
       description: expenseDescription,
       category: category,
     };
-
+    console.log(expenseInfo);
     setExpenses((prev) => [...prev, expenseInfo]);
     getTotal();
     setBtnClicked(true);
@@ -52,6 +52,8 @@ function App() {
     setExpense("");
     // console.log(expenses);
   }
+
+  // function assignCategory() {}
 
   function getTotal() {
     // const sum = deposits.reduce((a, b) => {
@@ -65,14 +67,39 @@ function App() {
   }
 
   const totalExpenses = expenses.reduce((acc, cur) => {
-    console.log(acc + cur.amount);
     return acc + cur.amount;
   }, 0);
 
   const totalDeposits = deposits.reduce((acc, cur) => {
-    console.log(deposits);
     return acc + cur.amount;
   }, 0);
+
+  function getPercentage(expenseValue, totalValue) {
+    const percentage = expenseValue / totalValue;
+    return percentage;
+  }
+
+  const btn1 = "Fun";
+  const btn2 = "Bills";
+  const btn3 = "Food";
+  const btn4 = "Transportation";
+
+  //MUST MAKE ALERT WHEN NAVIGATING TO OTHER AREA OF SITE - FORCE USER TO ADD CATEGORY
+
+  function assignCateogry(button) {
+    const newArr = expenses.map((item) => {
+      if (item.category === "") {
+        return { ...item, category: button };
+      } else {
+        return item;
+      }
+    });
+    setExpenses(newArr);
+    console.log(expenses);
+    setBtnClicked((prev) => {
+      btnClicked: !prev;
+    });
+  }
 
   return (
     <div className="App">
@@ -91,8 +118,14 @@ function App() {
           description={expenseDescription}
           setDescription={setExpenseDescription}
           category={category}
+          assignCategory={assignCateogry}
           setCategory={setCategory}
+          setBtnClicked={setBtnClicked}
           btnClicked={btnClicked}
+          btn1={btn1}
+          btn2={btn2}
+          btn3={btn3}
+          btn4={btn4}
         />
       </div>
       <Balance
@@ -102,6 +135,7 @@ function App() {
         totalDeposits={totalDeposits}
         deposits={deposits}
         expenses={expenses}
+        getPercentage={getPercentage}
       />
     </div>
   );
