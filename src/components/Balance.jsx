@@ -21,7 +21,7 @@ export default function Balance({
     <div className="balance-container">
       <div className="total">
         <h4>Total Balance</h4>
-        <h1>${funPercentage}</h1>
+        <h1>${total}</h1>
       </div>
 
       <h4 className="total-deposits">

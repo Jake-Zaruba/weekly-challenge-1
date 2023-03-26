@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Deposits from "./components/Deposits";
 import NewExpense from "./components/NewExpense";
 import Balance from "./components/Balance";
@@ -97,6 +97,8 @@ function App() {
     addCategory.filter((item) => {
       if (item.category === "Fun") {
         setFunSum((prev) => prev + Math.abs(item.amount));
+        console.log(Math.abs(item.amount));
+        console.log(addCategory);
       } else if (item.category === "Bills") {
         setBillsSum((prev) => prev + Math.abs(item.amount));
       } else if (item.category === "Food") {
@@ -105,6 +107,12 @@ function App() {
         setTransportationSum((prev) => prev + Math.abs(item.amount));
       }
     });
+
+    setBtnClicked((prev) => {
+      btnClicked: !prev;
+    });
+  }
+  function doThing() {
     const newObj = {
       funPercentage: getPercentage(funSum, Math.abs(totalExpenses)),
       billsPercentage: getPercentage(billsSum, Math.abs(totalExpenses)),
@@ -114,17 +122,16 @@ function App() {
         Math.abs(totalExpenses)
       ),
     };
-    setPercentage(newObj);
-
-    setBtnClicked((prev) => {
-      btnClicked: !prev;
-    });
-    console.log(getPercentage(funSum, Math.abs(totalExpenses)));
-    console.log(percentage.funPercentage);
+    setPercentage((prev) => ({ ...(prev = newObj) }));
   }
+
+  useEffect(() => {
+    doThing();
+  }, [expenses]);
 
   return (
     <div className="App">
+      <h2>{funSum}</h2>
       <div className="expense-deposit-container">
         <Deposits
           addDeposit={addDeposit}
