@@ -18,6 +18,12 @@ function App() {
   const [billsSum, setBillsSum] = useState(0);
   const [foodSum, setFoodSum] = useState(0);
   const [transportationSum, setTransportationSum] = useState(0);
+  const [percentage, setPercentage] = useState({
+    funPercentage: 0,
+    billsPercentage: 0,
+    foodPercentage: 0,
+    transportationPercentage: 0,
+  });
 
   function addDeposit() {
     if (!deposit) {
@@ -68,7 +74,8 @@ function App() {
   }, 0);
 
   function getPercentage(expenseValue, totalValue) {
-    return expenseValue / totalValue;
+    const roundedPercentage = (expenseValue / totalValue).toFixed(2);
+    return roundedPercentage;
   }
 
   const btn1 = "Fun";
@@ -98,10 +105,22 @@ function App() {
         setTransportationSum((prev) => prev + Math.abs(item.amount));
       }
     });
-    console.log(totalExpenses);
+    const newObj = {
+      funPercentage: getPercentage(funSum, Math.abs(totalExpenses)),
+      billsPercentage: getPercentage(billsSum, Math.abs(totalExpenses)),
+      foodPercentage: getPercentage(foodSum, Math.abs(totalExpenses)),
+      transportationPercentage: getPercentage(
+        transportationSum,
+        Math.abs(totalExpenses)
+      ),
+    };
+    setPercentage(newObj);
+
     setBtnClicked((prev) => {
       btnClicked: !prev;
     });
+    console.log(getPercentage(funSum, Math.abs(totalExpenses)));
+    console.log(percentage.funPercentage);
   }
 
   return (
@@ -138,7 +157,10 @@ function App() {
         totalDeposits={totalDeposits}
         deposits={deposits}
         expenses={expenses}
-        getPercentage={getPercentage}
+        funPercentage={percentage.funPercentage}
+        billsPercentage={percentage.billsPercentage}
+        foodPercentage={percentage.foodPercentage}
+        transportationPercentage={percentage.transportationPercentage}
         funSum={funSum}
         billsSum={billsSum}
         foodSum={foodSum}

@@ -1,27 +1,21 @@
 import React, { useState } from "react";
 
 export default function PieChart({
-  getPercentage,
+  percentage,
   totalExpenses,
   totalDeposits,
   total,
   expenses,
-  funSum,
-  billsSum,
-  foodSum,
+  funPercentage,
+  billsPercentage,
+  foodPercentage,
+  transportationPercentage,
   transportationSum,
 }) {
-  const funPercentage =
-    getPercentage(funSum, Math.abs(totalExpenses)).toFixed(2) * 100;
-
-  const billsPercentage =
-    getPercentage(billsSum, Math.abs(totalExpenses)).toFixed(2) * 100;
-
-  const foodPercentage =
-    getPercentage(foodSum, Math.abs(totalExpenses)).toFixed(2) * 100;
-
-  const transportationPercentage =
-    getPercentage(transportationSum, Math.abs(totalExpenses)).toFixed(2) * 100;
+  // const funAngle = 45;
+  // const billsAngle = 90;
+  // const foodAngle = 180;
+  // const transportationAngle = 30;
 
   const funAngle = ((funPercentage / 100) * 360).toFixed();
   const billsAngle = ((billsPercentage / 100) * 360).toFixed();
@@ -39,7 +33,7 @@ export default function PieChart({
 
   return (
     <>
-      {/* <button
+      <button
         onClick={() =>
           console.log(
             funPercentage,
@@ -50,7 +44,7 @@ export default function PieChart({
         }
       >
         hi
-      </button> */}
+      </button>
       <div
         style={{
           height: "15rem",

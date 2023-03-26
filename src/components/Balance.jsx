@@ -8,7 +8,10 @@ export default function Balance({
   totalDeposits,
   deposits,
   expenses,
-  getPercentage,
+  funPercentage,
+  billsPercentage,
+  foodPercentage,
+  transportationPercentage,
   funSum,
   billsSum,
   foodSum,
@@ -18,7 +21,7 @@ export default function Balance({
     <div className="balance-container">
       <div className="total">
         <h4>Total Balance</h4>
-        <h1>${total}</h1>
+        <h1>${funPercentage}</h1>
       </div>
 
       <h4 className="total-deposits">
@@ -49,7 +52,10 @@ export default function Balance({
         expenses={expenses}
         totalExpenses={totalExpenses}
         totalDeposits={totalDeposits}
-        getPercentage={getPercentage}
+        funPercentage={funPercentage}
+        billsPercentage={billsPercentage}
+        foodPercentage={foodPercentage}
+        transportationPercentage={transportationPercentage}
         funSum={funSum}
         billsSum={billsSum}
         foodSum={foodSum}
