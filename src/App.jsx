@@ -68,8 +68,7 @@ function App() {
   }, 0);
 
   function getPercentage(expenseValue, totalValue) {
-    const percentage = expenseValue / totalValue;
-    return percentage;
+    return expenseValue / totalValue;
   }
 
   const btn1 = "Fun";
@@ -79,83 +78,27 @@ function App() {
 
   //MUST MAKE ALERT WHEN NAVIGATING TO OTHER AREA OF SITE - FORCE USER TO ADD CATEGORY
 
-  const funExpenses = expenses.filter((item) => {
-    if (item.category === "Fun") {
-      return item;
-    }
-  });
-  function getFunExpensesTotal() {
-    // console.log(funExpenses);
-    let sum = 0;
-    for (let i = 0; i < funExpenses.length; i++) {
-      sum += funExpenses[i]?.amount;
-    }
-    console.log(sum);
-    setFunSum(Math.abs(sum));
-  }
-
-  const billsExpenses = expenses.filter((item) => {
-    if (item.category === "Bills") {
-      return item;
-    }
-  });
-  function getBillsExpensesTotal() {
-    // console.log(billsExpenses);
-    let sum = 0;
-    for (let i = 0; i < billsExpenses.length; i++) {
-      sum += billsExpenses[i]?.amount;
-    }
-    // console.log(sum);
-    setBillsSum(Math.abs(sum));
-  }
-
-  const foodExpenses = expenses.filter((item) => {
-    if (item.category === "Food") {
-      return item;
-    }
-  });
-  function getFoodExpensesTotal() {
-    // console.log(foodExpenses);
-    let sum = 0;
-    for (let i = 0; i < foodExpenses.length; i++) {
-      sum += foodExpenses[i]?.amount;
-    }
-    // console.log(sum);
-    setFoodSum(Math.abs(sum));
-  }
-
-  const transportationExpenses = expenses.filter((item) => {
-    if (item.category === "Transportation") {
-      return item;
-    }
-  });
-  function getTransportationExpensesTotal() {
-    // console.log(transportationExpenses);
-    let sum = 0;
-    for (let i = 0; i < transportationExpenses.length; i++) {
-      sum += transportationExpenses[i]?.amount;
-    }
-    // console.log(sum);
-    setTransportationSum(Math.abs(sum));
-  }
-
   function assignCateogry(button) {
-    // if (expenses[expenses.length - 2].category === '') {
-
-    // }
-    const newArr = expenses.map((item) => {
+    const addCategory = expenses.map((item) => {
       if (item.category === "") {
         return { ...item, category: button };
       } else {
         return item;
       }
     });
-    setExpenses(newArr);
-    getFunExpensesTotal();
-    getBillsExpensesTotal();
-    getFoodExpensesTotal();
-    getTransportationExpensesTotal();
-    // console.log(expenses);
+    setExpenses(addCategory);
+    addCategory.filter((item) => {
+      if (item.category === "Fun") {
+        setFunSum((prev) => prev + Math.abs(item.amount));
+      } else if (item.category === "Bills") {
+        setBillsSum((prev) => prev + Math.abs(item.amount));
+      } else if (item.category === "Food") {
+        setFoodSum((prev) => prev + Math.abs(item.amount));
+      } else if (item.category === "Transportation") {
+        setTransportationSum((prev) => prev + Math.abs(item.amount));
+      }
+    });
+    console.log(totalExpenses);
     setBtnClicked((prev) => {
       btnClicked: !prev;
     });

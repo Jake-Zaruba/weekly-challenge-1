@@ -39,7 +39,7 @@ export default function PieChart({
 
   return (
     <>
-      <button
+      {/* <button
         onClick={() =>
           console.log(
             funPercentage,
@@ -50,7 +50,7 @@ export default function PieChart({
         }
       >
         hi
-      </button>
+      </button> */}
       <div
         style={{
           height: "15rem",
