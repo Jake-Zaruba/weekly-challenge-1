@@ -9,6 +9,10 @@ export default function Balance({
   deposits,
   expenses,
   getPercentage,
+  funSum,
+  billsSum,
+  foodSum,
+  transportationSum,
 }) {
   return (
     <div className="balance-container">
@@ -42,9 +46,14 @@ export default function Balance({
       </div>
       <PieChart
         total={total}
+        expenses={expenses}
         totalExpenses={totalExpenses}
         totalDeposits={totalDeposits}
         getPercentage={getPercentage}
+        funSum={funSum}
+        billsSum={billsSum}
+        foodSum={foodSum}
+        transportationSum={transportationSum}
       />
       <div id="recent-expense">
         <h4>Recent</h4>

@@ -14,6 +14,10 @@ function App() {
   const [category, setCategory] = useState("");
   const [categories, setCategories] = useState([]);
   const [btnClicked, setBtnClicked] = useState(false);
+  const [funSum, setFunSum] = useState(0);
+  const [billsSum, setBillsSum] = useState(0);
+  const [foodSum, setFoodSum] = useState(0);
+  const [transportationSum, setTransportationSum] = useState(0);
 
   function addDeposit() {
     if (!deposit) {
@@ -44,25 +48,14 @@ function App() {
       description: expenseDescription,
       category: category,
     };
-    console.log(expenseInfo);
     setExpenses((prev) => [...prev, expenseInfo]);
     getTotal();
     setBtnClicked(true);
     setExpenseDescription("");
     setExpense("");
-    // console.log(expenses);
   }
 
-  // function assignCategory() {}
-
   function getTotal() {
-    // const sum = deposits.reduce((a, b) => {
-    //   return a + parseInt(b);
-    // }, 0);
-    // const difference = expenses.reduce((a, b) => {
-    //   return a + parseInt(b);
-    // }, 0);
-    // const newTotal = sum + difference;
     setTotal((prev) => prev + deposit - expense * -1);
   }
 
@@ -86,7 +79,70 @@ function App() {
 
   //MUST MAKE ALERT WHEN NAVIGATING TO OTHER AREA OF SITE - FORCE USER TO ADD CATEGORY
 
+  const funExpenses = expenses.filter((item) => {
+    if (item.category === "Fun") {
+      return item;
+    }
+  });
+  function getFunExpensesTotal() {
+    // console.log(funExpenses);
+    let sum = 0;
+    for (let i = 0; i < funExpenses.length; i++) {
+      sum += funExpenses[i]?.amount;
+    }
+    console.log(sum);
+    setFunSum(Math.abs(sum));
+  }
+
+  const billsExpenses = expenses.filter((item) => {
+    if (item.category === "Bills") {
+      return item;
+    }
+  });
+  function getBillsExpensesTotal() {
+    // console.log(billsExpenses);
+    let sum = 0;
+    for (let i = 0; i < billsExpenses.length; i++) {
+      sum += billsExpenses[i]?.amount;
+    }
+    // console.log(sum);
+    setBillsSum(Math.abs(sum));
+  }
+
+  const foodExpenses = expenses.filter((item) => {
+    if (item.category === "Food") {
+      return item;
+    }
+  });
+  function getFoodExpensesTotal() {
+    // console.log(foodExpenses);
+    let sum = 0;
+    for (let i = 0; i < foodExpenses.length; i++) {
+      sum += foodExpenses[i]?.amount;
+    }
+    // console.log(sum);
+    setFoodSum(Math.abs(sum));
+  }
+
+  const transportationExpenses = expenses.filter((item) => {
+    if (item.category === "Transportation") {
+      return item;
+    }
+  });
+  function getTransportationExpensesTotal() {
+    // console.log(transportationExpenses);
+    let sum = 0;
+    for (let i = 0; i < transportationExpenses.length; i++) {
+      sum += transportationExpenses[i]?.amount;
+    }
+    // console.log(sum);
+    setTransportationSum(Math.abs(sum));
+  }
+
   function assignCateogry(button) {
+    // if (expenses[expenses.length - 2].category === '') {
+
+    // }
     const newArr = expenses.map((item) => {
       if (item.category === "") {
         return { ...item, category: button };
@@ -95,7 +151,11 @@ function App() {
       }
     });
     setExpenses(newArr);
-    console.log(expenses);
+    getFunExpensesTotal();
+    getBillsExpensesTotal();
+    getFoodExpensesTotal();
+    getTransportationExpensesTotal();
+    // console.log(expenses);
     setBtnClicked((prev) => {
       btnClicked: !prev;
     });
@@ -136,6 +196,10 @@ function App() {
         deposits={deposits}
         expenses={expenses}
         getPercentage={getPercentage}
+        funSum={funSum}
+        billsSum={billsSum}
+        foodSum={foodSum}
+        transportationSum={transportationSum}
       />
     </div>
   );

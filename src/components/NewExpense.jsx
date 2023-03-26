@@ -15,6 +15,9 @@ export default function NewExpense({
   btn3,
   btn4,
 }) {
+  const categoryAlert = () => {
+    alert("Please select a category");
+  };
   return (
     <div className="new-expense-container">
       <form>
@@ -39,6 +42,7 @@ export default function NewExpense({
       <div className="category-btn-container">
         <button
           onClick={() => assignCategory(btn1)}
+          // onBlur={() => categoryAlert()}
           className={
             !btnClicked ? "category-btn" : "category-btn cat-1-animation"
           }
