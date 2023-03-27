@@ -180,6 +180,7 @@ function App() {
         billsSum={billsSum}
         foodSum={foodSum}
         transportationSum={transportationSum}
+        btnClicked={btnClicked}
       />
     </div>
   );

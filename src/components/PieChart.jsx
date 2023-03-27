@@ -5,6 +5,7 @@ export default function PieChart({
   billsPercentage,
   foodPercentage,
   transportationPercentage,
+  btnClicked,
 }) {
   const funAngle = parseInt((funPercentage * 360).toFixed());
   const billsAngle = parseInt((billsPercentage * 360).toFixed());
@@ -21,16 +22,6 @@ export default function PieChart({
 
   const [a, b, c, d] = angleArr;
 
-  // function showSorted() {
-  //   console.log(sortedArr);
-  //   console.log(a, b, c, d);
-  // }
-
-  // const a = 90;
-  // const b = 90;
-  // const c = 90;
-  // const d = 90;
-
   return (
     <>
       {/* <button onClick={() => showSorted()}>hi</button> */}
@@ -42,11 +33,11 @@ export default function PieChart({
           transition: "all 0.3s",
           backgroundImage: `conic-gradient(#698269 0deg ${a}deg, #B99B6B ${a}deg ${
             a + b
-          }deg, #F1DBBF ${a + b}deg ${a + b + c}deg, #AA5656 ${a + b + c}deg ${
-            a + b + c + d
-          }deg)`,
+          }deg, #F1DBBF ${a + b}deg ${a + b + c}deg, #${
+            d === 0 ? "f1dbbf5c" : "AA5656"
+          } ${a + b + c}deg ${a + b + c + d}deg)`,
         }}
-        className="pie-chart"
+        className={!btnClicked ? "pie-chart pie-chart-animation" : "pie-chart"}
       ></div>
     </>
   );

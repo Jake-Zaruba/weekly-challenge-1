@@ -16,6 +16,7 @@ export default function Balance({
   billsSum,
   foodSum,
   transportationSum,
+  btnClicked,
 }) {
   return (
     <div className="balance-container">
@@ -60,7 +61,18 @@ export default function Balance({
         billsSum={billsSum}
         foodSum={foodSum}
         transportationSum={transportationSum}
+        btnClicked={btnClicked}
       />
+      <div className="legend">
+        <div className="legend-icon"></div>
+        <span>Fun</span>
+        <div className="legend-icon"></div>
+        <span>Bills</span>
+        <div className="legend-icon"></div>
+        <span>Food</span>
+        <div className="legend-icon"></div>
+        <span>Transporation</span>
+      </div>
       <div id="recent-expense">
         <h4>Recent</h4>
         {expenses.length === 0 ? (
