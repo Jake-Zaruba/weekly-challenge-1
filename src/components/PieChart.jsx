@@ -1,21 +1,17 @@
 import React, { useState } from "react";
 
 export default function PieChart({
-  percentage,
-  totalExpenses,
-  totalDeposits,
-  total,
-  expenses,
   funPercentage,
   billsPercentage,
   foodPercentage,
   transportationPercentage,
-  transportationSum,
 }) {
-  const funAngle = (funPercentage * 360).toFixed();
-  const billsAngle = (billsPercentage * 360).toFixed();
-  const foodAngle = (foodPercentage * 360).toFixed();
-  const transportationAngle = (transportationPercentage * 360).toFixed();
+  const funAngle = parseInt((funPercentage * 360).toFixed());
+  const billsAngle = parseInt((billsPercentage * 360).toFixed());
+  const foodAngle = parseInt((foodPercentage * 360).toFixed());
+  const transportationAngle = parseInt(
+    (transportationPercentage * 360).toFixed()
+  );
 
   const angleArr = [funAngle, billsAngle, foodAngle, transportationAngle];
 
@@ -23,48 +19,21 @@ export default function PieChart({
     return num1 - num2;
   });
 
-  const [a, b, c, d] = sortedArr;
+  const [a, b, c, d] = angleArr;
 
-  function showDegrees() {
-    console.log(funAngle, billsAngle, foodAngle, transportationAngle);
-  }
-
-  function showSorted() {
-    console.log(sortedArr);
-    console.log(a, b, c, d);
-  }
-
-  // function showPercent() {
-  //   console.log(
-  //     funPercentage,
-  //     billsPercentage,
-  //     foodPercentage,
-  //     transportationPercentage
-  //   );
+  // function showSorted() {
+  //   console.log(sortedArr);
+  //   console.log(a, b, c, d);
   // }
 
-  // console.log(funExpenses);
-
-  // const a = 45;
+  // const a = 90;
   // const b = 90;
-  // const c = 180;
-  // const d = 45;
+  // const c = 90;
+  // const d = 90;
 
   return (
     <>
-      <button
-        onClick={() =>
-          // console.log(
-          //   funPercentage,
-          //   billsPercentage,
-          //   foodPercentage,
-          //   transportationPercentage
-          // )
-          showSorted()
-        }
-      >
-        hi
-      </button>
+      {/* <button onClick={() => showSorted()}>hi</button> */}
       <div
         style={{
           height: "15rem",
@@ -73,8 +42,9 @@ export default function PieChart({
           transition: "all 0.3s",
           backgroundImage: `conic-gradient(#698269 0deg ${a}deg, #B99B6B ${a}deg ${
             a + b
-          }deg, #F1DBBF ${a + b}deg ${a + b + c}deg, #AA5656 ${a + b + c}deg)`,
-          // background: `conic-gradient(orange ${funSum}%, blue ${funSum}% ${billsSum}%, red ${billsSum}% ${foodSum}%, green ${foodSum}% ${transportationSum}%`,
+          }deg, #F1DBBF ${a + b}deg ${a + b + c}deg, #AA5656 ${a + b + c}deg ${
+            a + b + c + d
+          }deg)`,
         }}
         className="pie-chart"
       ></div>
