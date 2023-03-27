@@ -74,7 +74,7 @@ function App() {
   }, 0);
 
   function getPercentage(expenseValue, totalValue) {
-    const roundedPercentage = (expenseValue / totalValue).toFixed(2);
+    const roundedPercentage = (expenseValue / totalValue).toFixed(5);
     return roundedPercentage;
   }
 
@@ -95,24 +95,33 @@ function App() {
     });
     setExpenses(addCategory);
     addCategory.filter((item) => {
-      if (item.category === "Fun") {
+      if (
+        item.category === "Fun" &&
+        item.id === expenses[expenses.length - 1].id
+      ) {
         setFunSum((prev) => prev + Math.abs(item.amount));
-        console.log(Math.abs(item.amount));
-        console.log(addCategory);
-      } else if (item.category === "Bills") {
+      } else if (
+        item.category === "Bills" &&
+        item.id === expenses[expenses.length - 1].id
+      ) {
         setBillsSum((prev) => prev + Math.abs(item.amount));
-      } else if (item.category === "Food") {
+      } else if (
+        item.category === "Food" &&
+        item.id === expenses[expenses.length - 1].id
+      ) {
         setFoodSum((prev) => prev + Math.abs(item.amount));
-      } else if (item.category === "Transportation") {
+      } else if (
+        item.category === "Transportation" &&
+        item.id === expenses[expenses.length - 1].id
+      ) {
         setTransportationSum((prev) => prev + Math.abs(item.amount));
       }
     });
-
     setBtnClicked((prev) => {
       btnClicked: !prev;
     });
   }
-  function doThing() {
+  function updatePercentages() {
     const newObj = {
       funPercentage: getPercentage(funSum, Math.abs(totalExpenses)),
       billsPercentage: getPercentage(billsSum, Math.abs(totalExpenses)),
@@ -126,12 +135,11 @@ function App() {
   }
 
   useEffect(() => {
-    doThing();
+    updatePercentages();
   }, [expenses]);
 
   return (
     <div className="App">
-      <h2>{funSum}</h2>
       <div className="expense-deposit-container">
         <Deposits
           addDeposit={addDeposit}
