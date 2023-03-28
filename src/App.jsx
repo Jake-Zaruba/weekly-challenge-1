@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
-
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Deposits from "./components/Deposits";
 import NewExpense from "./components/NewExpense";
 import Balance from "./components/Balance";
+import Layout from "./Layout";
 
 function App() {
   const [deposit, setDeposit] = useState("");
@@ -148,50 +149,67 @@ function App() {
   }, [expenses]);
 
   return (
-    <div className="App">
-      <div className="expense-deposit-container">
-        <Deposits
-          addDeposit={addDeposit}
-          deposit={deposit}
-          setDeposit={setDeposit}
-          description={depositDescription}
-          setDescription={setDepositDescription}
-        />
-        <NewExpense
-          addExpense={addExpense}
-          expense={expense}
-          setExpense={setExpense}
-          description={expenseDescription}
-          setDescription={setExpenseDescription}
-          category={category}
-          assignCategory={assignCateogry}
-          setCategory={setCategory}
-          setBtnClicked={setBtnClicked}
-          btnClicked={btnClicked}
-          btn1={btn1}
-          btn2={btn2}
-          btn3={btn3}
-          btn4={btn4}
-        />
-      </div>
-      <Balance
-        getTotal={getTotal}
-        total={total}
-        totalExpenses={totalExpenses}
-        totalDeposits={totalDeposits}
-        deposits={deposits}
-        expenses={expenses}
-        funPercentage={percentage.funPercentage}
-        billsPercentage={percentage.billsPercentage}
-        foodPercentage={percentage.foodPercentage}
-        transportationPercentage={percentage.transportationPercentage}
-        funSum={funSum}
-        billsSum={billsSum}
-        foodSum={foodSum}
-        transportationSum={transportationSum}
-        btnClicked={btnClicked}
-      />
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route
+            index
+            element={
+              <Balance
+                getTotal={getTotal}
+                total={total}
+                totalExpenses={totalExpenses}
+                totalDeposits={totalDeposits}
+                deposits={deposits}
+                expenses={expenses}
+                funPercentage={percentage.funPercentage}
+                billsPercentage={percentage.billsPercentage}
+                foodPercentage={percentage.foodPercentage}
+                transportationPercentage={percentage.transportationPercentage}
+                funSum={funSum}
+                billsSum={billsSum}
+                foodSum={foodSum}
+                transportationSum={transportationSum}
+                btnClicked={btnClicked}
+              />
+            }
+          />
+          <Route
+            path="deposits"
+            element={
+              <Deposits
+                addDeposit={addDeposit}
+                deposit={deposit}
+                setDeposit={setDeposit}
+                description={depositDescription}
+                setDescription={setDepositDescription}
+              />
+            }
+          />
+          <Route
+            path="expenses"
+            element={
+              <NewExpense
+                addExpense={addExpense}
+                expense={expense}
+                setExpense={setExpense}
+                description={expenseDescription}
+                setDescription={setExpenseDescription}
+                category={category}
+                assignCategory={assignCateogry}
+                setCategory={setCategory}
+                setBtnClicked={setBtnClicked}
+                btnClicked={btnClicked}
+                btn1={btn1}
+                btn2={btn2}
+                btn3={btn3}
+                btn4={btn4}
+              />
+            }
+          />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
