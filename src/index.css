@@ -302,27 +302,30 @@ textarea {
 
 .total-deposits {
   grid-column: 1;
-  grid-row: 2;
+  grid-row: 1;
   justify-self: center;
   gap: 0.6rem;
 }
 
 .total-expenses {
   grid-column: 3;
-  grid-row: 2;
+  grid-row: 1;
   justify-self: center;
   gap: 0.6rem;
 }
 
 #recent-deposit {
   grid-column: 1;
-  grid-row: 3;
+  grid-row: 2;
+  height: 17.5rem;
   justify-self: center;
+  overflow-y: scroll;
+  scrollbar-width: 0;
 }
 
 #recent-expense {
   grid-column: 3;
-  grid-row: 3;
+  grid-row: 2;
   height: 17.5rem;
   justify-self: center;
   overflow-y: scroll;
@@ -381,7 +384,7 @@ textarea {
 .legend {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  /* gap: 1rem; */
   grid-column: 2;
   grid-row: 3;
   align-self: flex-start;
@@ -396,10 +399,11 @@ textarea {
 .legend-icon {
   height: 1rem;
   width: 1rem;
+  margin: 0 0.4rem 0 1rem;
 }
 
 .legend-icon:nth-child(1) {
-  background-color: #40513b;
+  background-color: #698269;
 }
 
 .legend-icon:nth-child(3) {

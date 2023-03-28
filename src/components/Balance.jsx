@@ -18,6 +18,19 @@ export default function Balance({
   transportationSum,
   btnClicked,
 }) {
+  //EXPENSES LIST CATEGORY COLOR VARIABLES
+  function getLegendIconColor() {
+    if (item.category === "Fun") {
+      return 698269;
+    } else if (item.category === "Bills") {
+      return B99B6B;
+    } else if (item.category === "Food") {
+      return F1DBBF;
+    } else if (item.category === "Food") {
+      return AA5656;
+    }
+  }
+
   return (
     <div className="balance-container">
       <div className="total">
@@ -80,11 +93,19 @@ export default function Balance({
         ) : (
           expenses.map((item) => {
             return (
-              <div className="recent-item" key={item.id}>
-                <p>{item.description}</p>
+              <>
+                <div className="recent-item" key={item.id}>
+                  <p>{item.description}</p>
 
-                <p>${Math.abs(item.amount)}</p>
-              </div>
+                  <p>${Math.abs(item.amount)}</p>
+                  <div
+                    className="legend-icon"
+                    style={{
+                      borderRadius: "50%",
+                    }}
+                  ></div>
+                </div>
+              </>
             );
           })
         )}

@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+
 import Deposits from "./components/Deposits";
 import NewExpense from "./components/NewExpense";
 import Balance from "./components/Balance";
@@ -25,6 +26,8 @@ function App() {
     transportationPercentage: 0,
   });
 
+  //ADD DEPOSITS
+
   function addDeposit() {
     if (!deposit) {
       return alert("Add a deposit");
@@ -41,6 +44,8 @@ function App() {
     setDepositDescription("");
     setDeposit("");
   }
+
+  //ADD EXPENSES
 
   function addExpense() {
     if (!expense) {
@@ -61,6 +66,8 @@ function App() {
     setExpense("");
   }
 
+  //GET TOTAL BALANCES
+
   function getTotal() {
     setTotal((prev) => prev + deposit - expense * -1);
   }
@@ -77,6 +84,8 @@ function App() {
     const roundedPercentage = (expenseValue / totalValue).toFixed(5);
     return roundedPercentage;
   }
+
+  //ASSIGN CATEGORIES TO EXPENSES
 
   const btn1 = "Fun";
   const btn2 = "Bills";
