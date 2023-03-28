@@ -114,7 +114,7 @@ export default function Balance({
                               ? "F1DBBF"
                               : item.category === "Transportation"
                               ? "AA5656"
-                              : "fff"
+                              : "f1dbbf5e"
                           }`,
                         }}
                       ></div>
