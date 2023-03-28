@@ -219,11 +219,11 @@ h4 {
   }
 }
 
-.deposits-container {
+/* .deposits-container {
 }
 
 .new-expense-container {
-}
+} */
 
 .balance-container {
   display: grid;
@@ -231,7 +231,7 @@ h4 {
   grid-template-rows: 1fr 0.5fr repeat(2, 1fr);
   align-items: center;
   padding: 2rem;
-  height: 50vh;
+  max-height: 33rem;
   width: 70vw;
   max-width: 144rem;
   border-radius: 1.2rem;
@@ -308,31 +308,42 @@ textarea {
 }
 
 .total-expenses {
+  position: relative;
   grid-column: 3;
   grid-row: 1;
   justify-self: center;
   gap: 0.6rem;
 }
 
+.recent-container {
+  display: flex;
+  flex-direction: column;
+  justify-self: center;
+  margin-top: 2rem;
+}
+
 #recent-deposit {
   grid-column: 1;
-  grid-row: 2;
-  height: 17.5rem;
+  grid-row: 2 span;
+  height: 22rem;
   justify-self: center;
+  align-self: flex-start;
   overflow-y: scroll;
   scrollbar-width: 0;
 }
 
 #recent-expense {
   grid-column: 3;
-  grid-row: 2;
-  height: 17.5rem;
+  grid-row: 2 span;
+  height: 22rem;
   justify-self: center;
+  align-self: flex-start;
   overflow-y: scroll;
   scrollbar-width: 0;
 }
 
-#recent-expense::-webkit-scrollbar {
+#recent-expense::-webkit-scrollbar,
+#recent-deposit::-webkit-scrollbar {
   display: none;
 }
 
@@ -350,6 +361,7 @@ textarea {
 }
 
 .recent-item {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -362,10 +374,28 @@ textarea {
   box-shadow: 0px 3px 10px #ffffff5b;
 }
 
+.price-category-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 6rem;
+}
+
+.price-category-container .legend-icon {
+  margin-left: 0.4rem;
+}
+
+/* #recent-expense .legend-icon {
+  position: absolute;
+  top: 1.4rem;
+  left: 0rem;
+} */
+
 .pie-chart {
   grid-column: 2;
   grid-row: 2;
   justify-self: center;
+  margin-bottom: 4rem;
 }
 
 .pie-chart-animation {
@@ -384,12 +414,11 @@ textarea {
 .legend {
   display: flex;
   align-items: center;
-  /* gap: 1rem; */
   grid-column: 2;
-  grid-row: 3;
-  align-self: flex-start;
+  grid-row: 2;
+  align-self: flex-end;
   justify-self: center;
-  margin-top: 1rem;
+  margin-bottom: 4rem;
 }
 
 .legend span {

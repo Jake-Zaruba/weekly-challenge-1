@@ -45,21 +45,23 @@ export default function Balance({
       <h4 className="total-expenses">
         Expenses <br /> <p>${Math.abs(totalExpenses)}</p>
       </h4>
-      <div id="recent-deposit">
+      <div className="recent-container">
         <h4>Recent</h4>
-        {deposits.length === 0 ? (
-          <p>No recent deposits</p>
-        ) : (
-          deposits.map((item) => {
-            return (
-              <div className="recent-item" key={item.id}>
-                <p>{item.description}</p>
+        <div id="recent-deposit">
+          {deposits.length === 0 ? (
+            <p>No recent deposits</p>
+          ) : (
+            deposits.map((item) => {
+              return (
+                <div className="recent-item" key={item.id}>
+                  <p>{item.description}</p>
 
-                <p>${item.amount}</p>
-              </div>
-            );
-          })
-        )}
+                  <p>${item.amount}</p>
+                </div>
+              );
+            })
+          )}
+        </div>
       </div>
       <PieChart
         total={total}
@@ -86,29 +88,43 @@ export default function Balance({
         <div className="legend-icon"></div>
         <span>Transporation</span>
       </div>
-      <div id="recent-expense">
+      <div className="recent-container">
         <h4>Recent</h4>
-        {expenses.length === 0 ? (
-          <p>No recent expenses</p>
-        ) : (
-          expenses.map((item) => {
-            return (
-              <>
-                <div className="recent-item" key={item.id}>
-                  <p>{item.description}</p>
-
-                  <p>${Math.abs(item.amount)}</p>
-                  <div
-                    className="legend-icon"
-                    style={{
-                      borderRadius: "50%",
-                    }}
-                  ></div>
-                </div>
-              </>
-            );
-          })
-        )}
+        <div id="recent-expense">
+          {expenses.length === 0 ? (
+            <p>No recent expenses</p>
+          ) : (
+            expenses.map((item) => {
+              return (
+                <>
+                  <div className="recent-item" key={item.id}>
+                    <p>{item.description}</p>
+                    <div className="price-category-container">
+                      <p>${Math.abs(item.amount)}</p>
+                      <div
+                        className="legend-icon"
+                        style={{
+                          borderRadius: "50%",
+                          backgroundColor: `#${
+                            item.category === "Fun"
+                              ? "698269"
+                              : item.category === "Bills"
+                              ? "B99B6B"
+                              : item.category === "Food"
+                              ? "F1DBBF"
+                              : item.category === "Transportation"
+                              ? "AA5656"
+                              : "fff"
+                          }`,
+                        }}
+                      ></div>
+                    </div>
+                  </div>
+                </>
+              );
+            })
+          )}
+        </div>
       </div>
     </div>
   );
