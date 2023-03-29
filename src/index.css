@@ -33,23 +33,57 @@ html {
 .navbar {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
+  align-items: flex-start;
   gap: 2rem;
-  height: 75vh;
-  width: 30rem;
-  background-color: #e4e4e4;
-  border-radius: 1.2rem;
+  padding: 2rem;
+  height: 60rem;
+  width: 20rem;
+  background-color: #f1dbbf;
+  border-top-left-radius: 1.2rem;
+  border-bottom-left-radius: 1.2rem;
   border: 2px solid white;
+  border-right: none;
 }
 
 .nav-link {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
   text-decoration: none;
-  font-size: 3rem;
+  font-size: 1.6rem;
   color: #213547;
-  border-bottom: 2px solid white;
+}
+
+.nav-link:focus {
+  outline: 2px solid #40513b;
+}
+
+ion-icon {
+  font-size: 2rem;
+  margin-left: 0.4rem;
+}
+
+.balance-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 1fr 0.5fr repeat(2, 1fr);
+  align-items: center;
+  padding: 2rem;
+  height: 60rem;
+  width: 60vw;
+  max-width: 144rem;
+  border-top-right-radius: 1.2rem;
+  border-bottom-right-radius: 1.2rem;
+  border: 2px solid white;
+  border-left: none;
+  background-color: #9dc08b;
+  /* box-shadow: 0px 3px 10px #3333335b; */
 }
 
 body {
+  display: flex;
+  align-items: center;
   background-color: #edf1d6;
   min-height: 100vh;
 }
@@ -103,10 +137,9 @@ h4 {
 
 .App {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  align-self: center;
   justify-content: center;
-  gap: 3rem;
+  /* gap: 3rem; */
 }
 
 .expense-deposit-container {
@@ -116,19 +149,40 @@ h4 {
 
 .deposits-container,
 .new-expense-container {
+  flex-grow: 0;
+  gap: 1rem;
+  flex-grow: 1;
+  height: 60rem;
+  width: 60vw;
+  padding: 2rem;
+  border-top-right-radius: 1.2rem;
+  border-bottom-right-radius: 1.2rem;
+  border: 2px solid white;
+  border-left: none;
+  background-color: #9dc08b;
+  /* box-shadow: 0px 3px 10px #3333335b; */
+}
+
+.deposits-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.new-expense-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+}
+
+.add-expense-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   flex-grow: 0;
   gap: 1rem;
-  flex-grow: 1;
-  height: 30rem;
-  width: 35rem;
-  padding: 2rem;
-  border-radius: 1.2rem;
-  border: 2px solid white;
-  background-color: #9dc08b;
-  box-shadow: 0px 3px 10px #3333335b;
+  grid-column: 1;
+  grid-row: 2;
 }
 
 .form-btn {
@@ -234,31 +288,6 @@ h4 {
 .new-expense-container {
 } */
 
-.balance-container {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: 1fr 0.5fr repeat(2, 1fr);
-  align-items: center;
-  padding: 2rem;
-  max-height: 33rem;
-  width: 70vw;
-  max-width: 144rem;
-  border-radius: 1.2rem;
-  border: 2px solid white;
-  background-color: #9dc08b;
-  box-shadow: 0px 3px 10px #3333335b;
-}
-
-/* .balance-container::before {
-  content: "";
-  height: 100%;
-  width: 100%;
-  grid-column: 2;
-  grid-row: 1;
-  background-color: white;
-  border-radius: 50%;
-} */
-
 form {
   box-sizing: border-box;
   margin: 0;
@@ -331,8 +360,13 @@ textarea {
   margin-top: 2rem;
 }
 
+.new-expense-container .recent-container {
+  grid-column: 3;
+  grid-row: 2;
+}
+
 #recent-deposit {
-  grid-column: 1;
+  grid-column: 2;
   grid-row: 2 span;
   height: 22rem;
   justify-self: center;
@@ -394,12 +428,6 @@ textarea {
   margin-left: 0.4rem;
 }
 
-/* #recent-expense .legend-icon {
-  position: absolute;
-  top: 1.4rem;
-  left: 0rem;
-} */
-
 .pie-chart {
   grid-column: 2;
   grid-row: 2;
@@ -454,4 +482,15 @@ textarea {
 
 .legend-icon:nth-child(7) {
   background-color: #aa5656;
+}
+
+/* PIE CHART IONN THE EXPENSES PAGE */
+
+.pie-chart-container {
+  display: flex;
+  flex-direction: column;
+  justify-self: center;
+  align-items: center;
+  grid-column: 2;
+  grid-row: 2;
 }

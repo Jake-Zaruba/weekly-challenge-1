@@ -181,6 +181,7 @@ function App() {
                 addDeposit={addDeposit}
                 deposit={deposit}
                 setDeposit={setDeposit}
+                deposits={deposits}
                 description={depositDescription}
                 setDescription={setDepositDescription}
               />
@@ -193,6 +194,8 @@ function App() {
                 addExpense={addExpense}
                 expense={expense}
                 setExpense={setExpense}
+                expenses={expenses}
+                totalExpenses={totalExpenses}
                 description={expenseDescription}
                 setDescription={setExpenseDescription}
                 category={category}
@@ -204,6 +207,11 @@ function App() {
                 btn2={btn2}
                 btn3={btn3}
                 btn4={btn4}
+                total={total}
+                funPercentage={percentage.funPercentage}
+                billsPercentage={percentage.billsPercentage}
+                foodPercentage={percentage.foodPercentage}
+                transportationPercentage={percentage.transportationPercentage}
               />
             }
           />

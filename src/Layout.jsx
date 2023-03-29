@@ -4,7 +4,7 @@ import Menu from "./components/Menu";
 
 export default function Layout() {
   return (
-    <div>
+    <div className="App">
       <Menu />
       <main>
         <Outlet />
