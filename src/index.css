@@ -39,7 +39,8 @@ html {
   padding: 2rem;
   height: 60rem;
   width: 20rem;
-  background-color: #f1dbbf;
+  background-color: #f3deba;
+  /* f1dbbf */
   border-top-left-radius: 1.2rem;
   border-bottom-left-radius: 1.2rem;
   border: 2px solid white;
@@ -163,7 +164,7 @@ h4 {
   border-bottom-right-radius: 1.2rem;
   border: 2px solid white;
   border-left: none;
-  background-color: #9dc08b;
+  background-color: #abc4aa;
   /* box-shadow: 0px 3px 10px #3333335b; */
 }
 
