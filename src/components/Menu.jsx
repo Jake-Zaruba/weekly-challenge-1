@@ -5,11 +5,14 @@ export default function Menu() {
   const activeLinkStyle = {
     borderLeft: "2px solid #AA5656",
     outline: "none",
+    transition: "all 0.2s",
   };
 
   const inactiveLinkStyle = {
-    borderBottom: "2px solid transparent",
+    borderLeft: "2px solid transparent",
     opacity: "80%",
+    transform: "scale(0.9)",
+    transition: "all 0.2s",
   };
 
   return (

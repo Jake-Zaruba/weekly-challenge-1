@@ -87,7 +87,6 @@ export default function NewExpense({
           <h1>${Math.abs(totalExpenses)}</h1>
         </div>
         <div className="pie-chart-container">
-          {" "}
           <PieChart
             funPercentage={funPercentage}
             billsPercentage={billsPercentage}

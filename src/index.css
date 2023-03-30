@@ -59,6 +59,10 @@ html {
   outline: 2px solid #40513b;
 }
 
+.nav-link:active {
+  outline: none;
+}
+
 ion-icon {
   font-size: 2rem;
   margin-left: 0.4rem;
@@ -357,7 +361,6 @@ textarea {
   display: flex;
   flex-direction: column;
   justify-self: center;
-  margin-top: 2rem;
 }
 
 .new-expense-container .recent-container {
