@@ -1,5 +1,6 @@
 import React from "react";
 import PieChart from "./PieChart";
+import { useState } from "react";
 
 export default function NewExpense({
   expense,
@@ -19,6 +20,18 @@ export default function NewExpense({
   foodPercentage,
   transportationPercentage,
   btnClicked,
+  jan,
+  feb,
+  mar,
+  apr,
+  may,
+  jun,
+  jul,
+  aug,
+  sep,
+  oct,
+  nov,
+  dec,
 }) {
   const categoryAlert = () => {
     alert("Please select a category");
@@ -142,6 +155,56 @@ export default function NewExpense({
                 );
               })
             )}
+          </div>
+        </div>
+        <div className="bar-graph-container">
+          <div className="month-container">
+            <div className="jan-bar">{jan}</div>
+            <span>Jan</span>
+          </div>
+          <div className="month-container">
+            <div className="feb-bar">{feb}</div>
+            <span>Feb</span>
+          </div>
+          <div className="month-container">
+            <h2 className="mar-bar">{mar}</h2>
+            <span>Mar</span>
+          </div>
+          <div className="month-container">
+            <div className="apr-bar">{apr}</div>
+            <span>Apr</span>
+          </div>
+          <div className="month-container">
+            <div className="may-bar">{may}</div>
+            <span>May</span>
+          </div>
+          <div className="month-container">
+            <div className="jun-bar">{jun}</div>
+            <span>Jun</span>
+          </div>
+          <div className="month-container">
+            <div className="jul-bar">{jul}</div>
+            <span>Jul</span>
+          </div>
+          <div className="month-container">
+            <div className="aug-bar">{aug}</div>
+            <span>Aug</span>
+          </div>
+          <div className="month-container">
+            <div className="sep-bar">{sep}</div>
+            <span>Sep</span>
+          </div>
+          <div className="month-container">
+            <div className="oct-bar">{oct}</div>
+            <span>Oct</span>
+          </div>
+          <div className="month-container">
+            <div className="nov-bar">{nov}</div>
+            <span>Nov</span>
+          </div>
+          <div className="month-container">
+            <div className="dec-bar">{dec}</div>
+            <span>Dec</span>
           </div>
         </div>
       </div>
