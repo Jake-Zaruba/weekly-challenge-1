@@ -126,7 +126,7 @@ button:focus-visible {
     background-color: #ffffff;
   }
   a:hover {
-    color: #40513b;
+    color: #aa5656;
   }
   button {
     background-color: #e4e4e4;
@@ -504,6 +504,18 @@ textarea {
   /* border-bottom-left-radius: 0%; */
 }
 
+.bar-container {
+  display: flex;
+  justify-content: center;
+  height: 7rem;
+  margin-bottom: 0.4rem;
+}
+
 .month-container {
   margin-bottom: 1rem;
+}
+
+.dollar-sign {
+  font-size: 1rem;
+  vertical-align: super;
 }

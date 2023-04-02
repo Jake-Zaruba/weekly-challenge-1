@@ -4,6 +4,7 @@ import Deposits from "./components/Deposits";
 import NewExpense from "./components/NewExpense";
 import Balance from "./components/Balance";
 import Layout from "./Layout";
+import Expenses from "./components/Expenses";
 
 function App() {
   //DEPOSIT STATE
@@ -330,7 +331,7 @@ function App() {
           <Route
             path="expenses"
             element={
-              <NewExpense
+              <Expenses
                 addExpense={addExpense}
                 expense={expense}
                 setExpense={setExpense}
