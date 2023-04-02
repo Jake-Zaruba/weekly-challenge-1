@@ -68,13 +68,6 @@ function App() {
     console.log(deposits);
     setDepositDescription("");
     setDeposit("");
-    // const test = expenses.filter((item) => {
-    //   if (item.date.split(" ")[1] === "Mar") {
-    //     return item.amount;
-    //   } else {
-    //     return "oops";
-    //   }
-    // });
     console.log(expenses[0].date.split(" ")[1]);
   }
 
@@ -104,70 +97,110 @@ function App() {
     setBtnClicked(true);
     setExpenseDescription("");
     setExpense("");
+
+    console.log(monthExpSum.mar);
+  }
+
+  function updateMonthExpenses() {
     expenses.filter((item) => {
       if (
         item.date.split(" ")[1] === "Jan" &&
         item.id === expenses[expenses.length - 1].id
       ) {
-        setMonthExpSum({ ...monthExpSum, jan: prev.jan + item.amount });
+        setMonthExpSum({
+          ...monthExpSum,
+          jan: Math.abs(prev.jan) + Math.abs(item.amount),
+        });
       } else if (
         item.date.split(" ")[1] === "Feb" &&
         item.id === expenses[expenses.length - 1].id
       ) {
-        setMonthExpSum({ ...monthExpSum, feb: monthExpSum.feb + item.amount });
+        setMonthExpSum({
+          ...monthExpSum,
+          feb: Math.abs(monthExpSum.feb) + Math.abs(item.amount),
+        });
       } else if (
         item.date.split(" ")[1] === "Mar" &&
         item.id === expenses[expenses.length - 1].id
       ) {
-        setMonthExpSum({ ...monthExpSum, mar: monthExpSum.mar + item.amount });
+        setMonthExpSum({
+          ...monthExpSum,
+          mar: Math.abs(monthExpSum.mar) + Math.abs(item.amount),
+        });
       } else if (
         item.date.split(" ")[1] === "Apr" &&
         item.id === expenses[expenses.length - 1].id
       ) {
-        setMonthExpSum({ ...monthExpSum, apr: monthExpSum.apr + item.amount });
+        setMonthExpSum({
+          ...monthExpSum,
+          apr: Math.abs(monthExpSum.apr) + Math.abs(item.amount),
+        });
       } else if (
         item.date.split(" ")[1] === "May" &&
         item.id === expenses[expenses.length - 1].id
       ) {
-        setMonthExpSum({ ...monthExpSum, may: monthExpSum.may + item.amount });
+        setMonthExpSum({
+          ...monthExpSum,
+          may: Math.abs(monthExpSum.may) + Math.abs(item.amount),
+        });
       } else if (
         item.date.split(" ")[1] === "Jun" &&
         item.id === expenses[expenses.length - 1].id
       ) {
-        setMonthExpSum({ ...monthExpSum, jun: monthExpSum.jun + item.amount });
+        setMonthExpSum({
+          ...monthExpSum,
+          jun: Math.abs(monthExpSum.jun) + Math.abs(item.amount),
+        });
       } else if (
         item.date.split(" ")[1] === "Jul" &&
         item.id === expenses[expenses.length - 1].id
       ) {
-        setMonthExpSum({ ...monthExpSum, jul: monthExpSum.jul + item.amount });
+        setMonthExpSum({
+          ...monthExpSum,
+          jul: Math.abs(monthExpSum.jul) + Math.abs(item.amount),
+        });
       } else if (
         item.date.split(" ")[1] === "Aug" &&
         item.id === expenses[expenses.length - 1].id
       ) {
-        setMonthExpSum({ ...monthExpSum, aug: monthExpSum.aug + item.amount });
+        setMonthExpSum({
+          ...monthExpSum,
+          aug: Math.abs(monthExpSum.au) + Math.abs(item.amount),
+        });
       } else if (
         item.date.split(" ")[1] === "Sep" &&
         item.id === expenses[expenses.length - 1].id
       ) {
-        setMonthExpSum({ ...monthExpSum, sep: monthExpSum.sep + item.amount });
+        setMonthExpSum({
+          ...monthExpSum,
+          sep: Math.abs(monthExpSum.sep) + Math.abs(item.amount),
+        });
       } else if (
         item.date.split(" ")[1] === "Oct" &&
         item.id === expenses[expenses.length - 1].id
       ) {
-        setMonthExpSum({ ...monthExpSum, oct: monthExpSum.oct + item.amount });
+        setMonthExpSum({
+          ...monthExpSum,
+          oct: Math.abs(monthExpSum.oct) + Math.abs(item.amount),
+        });
       } else if (
         item.date.split(" ")[1] === "Nov" &&
         item.id === expenses[expenses.length - 1].id
       ) {
-        setMonthExpSum({ ...monthExpSum, nov: monthExpSum.nov + item.amount });
+        setMonthExpSum({
+          ...monthExpSum,
+          nov: Math.abs(monthExpSum.nov) + Math.abs(item.amoun),
+        });
       } else if (
         item.date.split(" ")[1] === "Dec" &&
         item.id === expenses[expenses.length - 1].id
       ) {
-        setMonthExpSum({ ...monthExpSum, dec: monthExpSum.dec + item.amount });
+        setMonthExpSum({
+          ...monthExpSum,
+          dec: Math.abs(monthExpSum.dec) + Math.abs(item.amount),
+        });
       }
     });
-    console.log(monthExpSum.mar);
   }
 
   //GET TOTAL BALANCES
@@ -245,14 +278,15 @@ function App() {
       ),
     };
     setPercentage((prev) => ({ ...(prev = newObj) }));
-    const newDateObj = {
-      jan: getPercentage(),
-    };
   }
 
   useEffect(() => {
     updatePercentages();
   }, [expenses]);
+
+  useEffect(() => {
+    updateMonthExpenses();
+  }, [expenses.length]);
 
   return (
     <BrowserRouter>
