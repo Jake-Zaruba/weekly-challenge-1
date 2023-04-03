@@ -1,11 +1,11 @@
-export default function Bar(totalExpenses, jan, feb, mar, apr, month) {
+export default function Bar(total, jan, feb, mar, apr, month) {
   function getPercentage(value, totalValue) {
     const roundedPercentage = (value / totalValue).toFixed(5);
     return roundedPercentage * 100;
   }
   const percentage = getPercentage(
-    Math.abs(totalExpenses.month),
-    Math.abs(totalExpenses.totalExpenses)
+    Math.abs(total.month),
+    Math.abs(total.total)
   );
 
   const style = {
@@ -24,10 +24,7 @@ export default function Bar(totalExpenses, jan, feb, mar, apr, month) {
   return (
     <>
       <div className="bar-container">
-        <div
-          style={totalExpenses.totalExpenses ? style : null}
-          className="bar"
-        ></div>
+        <div style={total.total ? style : null} className="bar"></div>
       </div>
     </>
   );

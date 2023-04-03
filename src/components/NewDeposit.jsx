@@ -4,13 +4,14 @@ export default function NewDeposit({
   deposit,
   deposits,
   setDeposit,
+  totalDeposits,
   addDeposit,
   description,
   setDescription,
 }) {
   return (
     <>
-      <div className="deposits-container">
+      <div className="add-amount-container">
         <form>
           <input
             className="value-input"
@@ -36,23 +37,54 @@ export default function NewDeposit({
         <button className="form-btn" onClick={() => addDeposit()}>
           +
         </button>
-        <div className="recent-container">
-          <h4>Recent</h4>
-          <div id="recent-deposit">
-            {deposits.length === 0 ? (
-              <p>No recent deposits</p>
-            ) : (
-              deposits.map((item) => {
-                return (
-                  <div className="recent-item" key={item.id}>
-                    <p>{item.description}</p>
+        <div className="category-btn-container">
+          <button
+            onClick={() => assignCategory(btn1)}
+            // onBlur={() => categoryAlert()}
+            className={"category-btn "}
+          >
+            🎉
+          </button>
+          <button
+            onClick={() => assignCategory(btn2)}
+            className={"category-btn "}
+          >
+            🧾
+          </button>
+          <button
+            onClick={() => assignCategory(btn3)}
+            className={"category-btn "}
+          >
+            🍕
+          </button>
+          <button
+            onClick={() => assignCategory(btn4)}
+            className={"category-btn "}
+          >
+            🚗
+          </button>
+        </div>
+      </div>
+      <div className="total">
+        <h4>Deposits</h4>
+        <h1>${Math.abs(totalDeposits)}</h1>
+      </div>
+      <div className="recent-container">
+        <h4>Recent</h4>
+        <div id="recent-deposit">
+          {deposits.length === 0 ? (
+            <p>No recent deposits</p>
+          ) : (
+            deposits.map((item) => {
+              return (
+                <div className="recent-item" key={item.id}>
+                  <p>{item.description}</p>
 
-                    <p>${item.amount}</p>
-                  </div>
-                );
-              })
-            )}
-          </div>
+                  <p>${item.amount}</p>
+                </div>
+              );
+            })
+          )}
         </div>
       </div>
     </>

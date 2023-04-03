@@ -171,7 +171,7 @@ h4 {
   /* box-shadow: 0px 3px 10px #3333335b; */
 }
 
-.add-expense-container {
+.add-amount-container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -356,8 +356,13 @@ textarea {
   grid-row: 2;
 }
 
+.add-amount-container .recent-container {
+  grid-column: 3;
+  grid-row: 2;
+}
+
 #recent-deposit {
-  grid-column: 2;
+  grid-column: 3;
   grid-row: 2 span;
   height: 22rem;
   justify-self: center;

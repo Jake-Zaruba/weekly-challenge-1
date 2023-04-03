@@ -15,31 +15,14 @@ export default function NewExpense({
   btn2,
   btn3,
   btn4,
-  funPercentage,
-  billsPercentage,
-  foodPercentage,
-  transportationPercentage,
   btnClicked,
-  jan,
-  feb,
-  mar,
-  apr,
-  may,
-  jun,
-  jul,
-  aug,
-  sep,
-  oct,
-  nov,
-  dec,
-  getPercentage,
 }) {
   const categoryAlert = () => {
     alert("Please select a category");
   };
   return (
     <>
-      <div className="add-expense-container">
+      <div className="add-amount-container">
         <form>
           <input
             className="value-input"

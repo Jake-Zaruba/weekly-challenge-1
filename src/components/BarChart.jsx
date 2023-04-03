@@ -1,7 +1,6 @@
 import Bar from "./Bar";
 
 export default function BarChart({
-  monthExpSum,
   jan,
   feb,
   mar,
@@ -14,7 +13,7 @@ export default function BarChart({
   oct,
   nov,
   dec,
-  totalExpenses,
+  total,
 }) {
   // function checkPercent() {
   //   console.log(apr);
@@ -24,7 +23,7 @@ export default function BarChart({
     <>
       <div className="bar-graph-container">
         <div className="month-container">
-          <Bar month={jan} totalExpenses={totalExpenses} />
+          <Bar month={jan} total={total} />
           <h2 className="jan-bar">
             <span className="dollar-sign">&#36;</span>
             {jan}&nbsp;
@@ -32,7 +31,7 @@ export default function BarChart({
           <span>Jan</span>
         </div>
         <div className="month-container">
-          <Bar month={feb} totalExpenses={totalExpenses} />
+          <Bar month={feb} total={total} />
           <h2 className="feb-bar">
             <span className="dollar-sign">&#36;</span>
             {feb}&nbsp;
@@ -40,7 +39,7 @@ export default function BarChart({
           <span>Feb</span>
         </div>
         <div className="month-container">
-          <Bar month={mar} totalExpenses={totalExpenses} />
+          <Bar month={mar} total={total} />
           <h2 className="mar-bar">
             <span className="dollar-sign">&#36;</span>
             {mar}&nbsp;
@@ -48,7 +47,7 @@ export default function BarChart({
           <span>Mar</span>
         </div>
         <div className="month-container">
-          <Bar month={apr} totalExpenses={totalExpenses} />
+          <Bar month={apr} total={total} />
           <h2 className="apr-bar">
             <span className="dollar-sign">&#36;</span>
             {apr}&nbsp;
@@ -56,7 +55,7 @@ export default function BarChart({
           <span>Apr</span>
         </div>
         <div className="month-container">
-          <Bar month={may} totalExpenses={totalExpenses} />
+          <Bar month={may} total={total} />
           <h2 className="may-bar">
             <span className="dollar-sign">&#36;</span>
             {may}&nbsp;
@@ -64,7 +63,7 @@ export default function BarChart({
           <span>May</span>
         </div>
         <div className="month-container">
-          <Bar month={jun} totalExpenses={totalExpenses} />
+          <Bar month={jun} total={total} />
           <h2 className="jun-bar">
             <span className="dollar-sign">&#36;</span>
             {jun}&nbsp;
@@ -72,7 +71,7 @@ export default function BarChart({
           <span>Jun</span>
         </div>
         <div className="month-container">
-          <Bar month={jul} totalExpenses={totalExpenses} />
+          <Bar month={jul} total={total} />
           <h2 className="jul-bar">
             <span className="dollar-sign">&#36;</span>
             {jul}&nbsp;
@@ -80,7 +79,7 @@ export default function BarChart({
           <span>Jul</span>
         </div>
         <div className="month-container">
-          <Bar month={aug} totalExpenses={totalExpenses} />
+          <Bar month={aug} total={total} />
           <h2 className="aug-bar">
             <span className="dollar-sign">&#36;</span>
             {aug}&nbsp;
@@ -88,7 +87,7 @@ export default function BarChart({
           <span>Aug</span>
         </div>
         <div className="month-container">
-          <Bar month={sep} totalExpenses={totalExpenses} />
+          <Bar month={sep} total={total} />
           <h2 className="sep-bar">
             <span className="dollar-sign">&#36;</span>
             {sep}&nbsp;
@@ -96,7 +95,7 @@ export default function BarChart({
           <span>Sep</span>
         </div>
         <div className="month-container">
-          <Bar month={oct} totalExpenses={totalExpenses} />
+          <Bar month={oct} total={total} />
           <h2 className="oct-bar">
             <span className="dollar-sign">&#36;</span>
             {oct}&nbsp;
@@ -104,7 +103,7 @@ export default function BarChart({
           <span>Oct</span>
         </div>
         <div className="month-container">
-          <Bar month={nov} totalExpenses={totalExpenses} />
+          <Bar month={nov} total={total} />
           <h2 className="nov-bar">
             <span className="dollar-sign">&#36;</span>
             {nov}&nbsp;
@@ -112,7 +111,7 @@ export default function BarChart({
           <span>Nov</span>
         </div>
         <div className="month-container">
-          <Bar month={dec} totalExpenses={totalExpenses} />
+          <Bar month={dec} total={total} />
           <h2 className="dec-bar">
             <span className="dollar-sign">&#36;</span>
             {dec}&nbsp;

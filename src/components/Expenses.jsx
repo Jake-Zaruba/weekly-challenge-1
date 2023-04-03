@@ -98,7 +98,7 @@ export default function Expenses({
           nov={nov}
           dec={dec}
           {...monthExpSum}
-          totalExpenses={totalExpenses}
+          total={totalExpenses}
         />
       </div>
     </>

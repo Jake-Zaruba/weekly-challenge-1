@@ -28,6 +28,21 @@ function App() {
     foodPercentage: 0,
     transportationPercentage: 0,
   });
+  const [monthDepSum, setMonthDepSum] = useState({
+    jan: 0,
+    feb: 0,
+    mar: 0,
+    apr: 0,
+    may: 0,
+    jun: 0,
+    jul: 0,
+    aug: 0,
+    sep: 0,
+    oct: 0,
+    nov: 0,
+    dec: 0,
+  });
+
   const [monthExpSum, setMonthExpSum] = useState({
     jan: 0,
     feb: 0,
@@ -95,6 +110,108 @@ function App() {
     setBtnClicked(true);
     setExpenseDescription("");
     setExpense("");
+  }
+
+  function updateMonthDeposits() {
+    deposits.filter((item) => {
+      if (
+        item.date.split(" ")[1] === "Jan" &&
+        item.id === deposits[deposits.length - 1].id
+      ) {
+        setMonthDepSum({
+          ...monthDepSum,
+          jan: Math.abs(prev.jan) + Math.abs(item.amount),
+        });
+      } else if (
+        item.date.split(" ")[1] === "Feb" &&
+        item.id === deposits[deposits.length - 1].id
+      ) {
+        setMonthDepSum({
+          ...monthDepSum,
+          feb: Math.abs(monthDepSum.feb) + Math.abs(item.amount),
+        });
+      } else if (
+        item.date.split(" ")[1] === "Mar" &&
+        item.id === deposits[deposits.length - 1].id
+      ) {
+        setMonthDepSum({
+          ...monthDepSum,
+          mar: Math.abs(monthDepSum.mar) + Math.abs(item.amount),
+        });
+      } else if (
+        item.date.split(" ")[1] === "Apr" &&
+        item.id === deposits[deposits.length - 1].id
+      ) {
+        setMonthDepSum({
+          ...monthDepSum,
+          apr: Math.abs(monthDepSum.apr) + Math.abs(item.amount),
+        });
+      } else if (
+        item.date.split(" ")[1] === "May" &&
+        item.id === deposits[deposits.length - 1].id
+      ) {
+        setMonthDepSum({
+          ...monthDepSum,
+          may: Math.abs(monthDepSum.may) + Math.abs(item.amount),
+        });
+      } else if (
+        item.date.split(" ")[1] === "Jun" &&
+        item.id === deposits[deposits.length - 1].id
+      ) {
+        setMonthDepSum({
+          ...monthDepSum,
+          jun: Math.abs(monthDepSum.jun) + Math.abs(item.amount),
+        });
+      } else if (
+        item.date.split(" ")[1] === "Jul" &&
+        item.id === deposits[deposits.length - 1].id
+      ) {
+        setMonthDepSum({
+          ...monthDepSum,
+          jul: Math.abs(monthDepSum.jul) + Math.abs(item.amount),
+        });
+      } else if (
+        item.date.split(" ")[1] === "Aug" &&
+        item.id === deposits[deposits.length - 1].id
+      ) {
+        setMonthDepSum({
+          ...monthDepSum,
+          aug: Math.abs(monthDepSum.au) + Math.abs(item.amount),
+        });
+      } else if (
+        item.date.split(" ")[1] === "Sep" &&
+        item.id === deposits[deposits.length - 1].id
+      ) {
+        setMonthDepSum({
+          ...monthDepSum,
+          sep: Math.abs(monthDepSum.sep) + Math.abs(item.amount),
+        });
+      } else if (
+        item.date.split(" ")[1] === "Oct" &&
+        item.id === deposits[deposits.length - 1].id
+      ) {
+        setMonthDepSum({
+          ...monthDepSum,
+          oct: Math.abs(monthDepSum.oct) + Math.abs(item.amount),
+        });
+      } else if (
+        item.date.split(" ")[1] === "Nov" &&
+        item.id === deposits[deposits.length - 1].id
+      ) {
+        setMonthDepSum({
+          ...monthDepSum,
+          nov: Math.abs(monthDepSum.nov) + Math.abs(item.amoun),
+        });
+      } else if (
+        item.date.split(" ")[1] === "Dec" &&
+        item.id === deposits[deposits.length - 1].id
+      ) {
+        setMonthDepSum({
+          ...monthDepSum,
+          dec: Math.abs(monthDepSum.dec) + Math.abs(item.amount),
+        });
+      }
+    });
   }
 
   function updateMonthExpenses() {
@@ -284,6 +401,10 @@ function App() {
     updateMonthExpenses();
   }, [expenses.length]);
 
+  useEffect(() => {
+    updateMonthDeposits();
+  }, [deposits.length]);
+
   return (
     <BrowserRouter>
       <Routes>
@@ -318,6 +439,7 @@ function App() {
                 deposit={deposit}
                 setDeposit={setDeposit}
                 deposits={deposits}
+                totalDeposits={totalDeposits}
                 description={depositDescription}
                 setDescription={setDepositDescription}
                 funPercentage={percentage.funPercentage}
@@ -325,6 +447,7 @@ function App() {
                 foodPercentage={percentage.foodPercentage}
                 transportationPercentage={percentage.transportationPercentage}
                 btnClicked={btnClicked}
+                {...monthDepSum}
               />
             }
           />
