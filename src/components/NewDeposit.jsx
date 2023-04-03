@@ -11,7 +11,7 @@ export default function NewDeposit({
 }) {
   return (
     <>
-      <div className="add-amount-container">
+      <div style={{ marginBottom: "5rem" }} className="add-amount-container">
         <form>
           <input
             className="value-input"
@@ -37,33 +37,6 @@ export default function NewDeposit({
         <button className="form-btn" onClick={() => addDeposit()}>
           +
         </button>
-        <div className="category-btn-container">
-          <button
-            onClick={() => assignCategory(btn1)}
-            // onBlur={() => categoryAlert()}
-            className={"category-btn "}
-          >
-            🎉
-          </button>
-          <button
-            onClick={() => assignCategory(btn2)}
-            className={"category-btn "}
-          >
-            🧾
-          </button>
-          <button
-            onClick={() => assignCategory(btn3)}
-            className={"category-btn "}
-          >
-            🍕
-          </button>
-          <button
-            onClick={() => assignCategory(btn4)}
-            className={"category-btn "}
-          >
-            🚗
-          </button>
-        </div>
       </div>
       <div className="total">
         <h4>Deposits</h4>
