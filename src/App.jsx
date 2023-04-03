@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Deposits from "./components/Deposits";
-import NewExpense from "./components/NewExpense";
 import Balance from "./components/Balance";
 import Layout from "./Layout";
 import Expenses from "./components/Expenses";
@@ -66,10 +65,8 @@ function App() {
     };
     setDeposits((prev) => [...prev, depositInfo]);
     getTotal();
-    console.log(deposits);
     setDepositDescription("");
     setDeposit("");
-    console.log(expenses[0].date.split(" ")[1]);
   }
 
   //ADD EXPENSES
@@ -98,8 +95,6 @@ function App() {
     setBtnClicked(true);
     setExpenseDescription("");
     setExpense("");
-
-    console.log(monthExpSum.mar);
   }
 
   function updateMonthExpenses() {
@@ -325,6 +320,11 @@ function App() {
                 deposits={deposits}
                 description={depositDescription}
                 setDescription={setDepositDescription}
+                funPercentage={percentage.funPercentage}
+                billsPercentage={percentage.billsPercentage}
+                foodPercentage={percentage.foodPercentage}
+                transportationPercentage={percentage.transportationPercentage}
+                btnClicked={btnClicked}
               />
             }
           />

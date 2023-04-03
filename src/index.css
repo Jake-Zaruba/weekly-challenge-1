@@ -153,7 +153,6 @@ h4 {
   gap: 3rem;
 }
 
-.deposits-container,
 .new-expense-container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -278,12 +277,6 @@ h4 {
     transform: translateY(-3rem) translateX(-1rem);
   }
 }
-
-/* .deposits-container {
-}
-
-.new-expense-container {
-} */
 
 form {
   box-sizing: border-box;
