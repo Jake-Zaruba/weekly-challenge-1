@@ -6,6 +6,7 @@ export default function Menu() {
     borderLeft: "2px solid #AA5656",
     outline: "none",
     transition: "all 0.2s",
+    fontWeight: "500",
   };
 
   const inactiveLinkStyle = {
@@ -47,6 +48,16 @@ export default function Menu() {
         >
           <ion-icon name="card-outline"></ion-icon>
           Expenses
+        </NavLink>
+        <NavLink
+          style={({ isActive }) =>
+            isActive ? activeLinkStyle : inactiveLinkStyle
+          }
+          className="nav-link"
+          to="goals"
+        >
+          <ion-icon name="rocket-outline"></ion-icon>
+          Goals
         </NavLink>
       </nav>
     </header>

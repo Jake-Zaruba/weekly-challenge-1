@@ -8,10 +8,16 @@ export default function NewDeposit({
   addDeposit,
   description,
   setDescription,
+  assignGoal,
+  goal1,
+  goal2,
+  goal3,
+  goal4,
+  btnClicked,
 }) {
   return (
     <>
-      <div style={{ marginBottom: "5rem" }} className="add-amount-container">
+      <div className="add-amount-container">
         <form>
           <input
             className="value-input"
@@ -37,6 +43,41 @@ export default function NewDeposit({
         <button className="form-btn" onClick={() => addDeposit()}>
           +
         </button>
+        <div className="category-btn-container">
+          <button
+            onClick={() => assignGoal(goal1)}
+            // onBlur={() => categoryAlert()}
+            className={
+              !btnClicked ? "category-btn" : "category-btn cat-1-animation"
+            }
+          >
+            🏠
+          </button>
+          <button
+            onClick={() => assignGoal(goal2)}
+            className={
+              !btnClicked ? "category-btn" : "category-btn cat-2-animation"
+            }
+          >
+            🚗
+          </button>
+          <button
+            onClick={() => assignGoal(goal3)}
+            className={
+              !btnClicked ? "category-btn" : "category-btn cat-3-animation"
+            }
+          >
+            🌴
+          </button>
+          <button
+            onClick={() => assignGoal(goal4)}
+            className={
+              !btnClicked ? "category-btn" : "category-btn cat-4-animation"
+            }
+          >
+            🚫
+          </button>
+        </div>
       </div>
       <div className="total">
         <h4>Deposits</h4>

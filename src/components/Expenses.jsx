@@ -13,7 +13,6 @@ export default function Expenses({
   setDescription,
   category,
   assignCategory,
-  setCategory,
   setBtnClicked,
   btnClicked,
   btn1,
@@ -52,7 +51,6 @@ export default function Expenses({
           setDescription={setDescription}
           category={category}
           assignCategory={assignCategory}
-          setCategory={setCategory}
           setBtnClicked={setBtnClicked}
           btnClicked={btnClicked}
           btn1={btn1}
@@ -60,17 +58,13 @@ export default function Expenses({
           btn3={btn3}
           btn4={btn4}
           total={total}
-          funPercentage={funPercentage}
-          billsPercentage={billsPercentage}
-          foodPercentage={foodPercentage}
-          transportationPercentage={transportationPercentage}
         />
         <div className="pie-chart-container">
           <PieChart
-            funPercentage={funPercentage}
-            billsPercentage={billsPercentage}
-            foodPercentage={foodPercentage}
-            transportationPercentage={transportationPercentage}
+            value1={funPercentage}
+            value2={billsPercentage}
+            value3={foodPercentage}
+            value4={transportationPercentage}
             btnClicked={btnClicked}
           />
           <div className="legend">

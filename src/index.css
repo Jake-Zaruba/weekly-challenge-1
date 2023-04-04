@@ -356,13 +356,8 @@ textarea {
   grid-row: 2;
 }
 
-.add-amount-container .recent-container {
-  grid-column: 3;
-  grid-row: 2;
-}
-
 #recent-deposit {
-  grid-column: 3;
+  grid-column: 2;
   grid-row: 2 span;
   height: 22rem;
   justify-self: center;

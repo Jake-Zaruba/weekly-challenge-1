@@ -4,6 +4,7 @@ import Deposits from "./components/Deposits";
 import Balance from "./components/Balance";
 import Layout from "./Layout";
 import Expenses from "./components/Expenses";
+import Goals from "./components/Goals";
 
 function App() {
   //DEPOSIT STATE
@@ -17,16 +18,27 @@ function App() {
   const [expenseDescription, setExpenseDescription] = useState("");
   const [category, setCategory] = useState("");
   const [categories, setCategories] = useState([]);
+  const [goal, setGoal] = useState("");
   const [btnClicked, setBtnClicked] = useState(false);
   const [funSum, setFunSum] = useState(0);
   const [billsSum, setBillsSum] = useState(0);
   const [foodSum, setFoodSum] = useState(0);
   const [transportationSum, setTransportationSum] = useState(0);
+  const [goal1Sum, setGoal1Sum] = useState(0);
+  const [goal2Sum, setGoal2Sum] = useState(0);
+  const [goal3Sum, setGoal3Sum] = useState(0);
+  const [goal4Sum, setGoal4Sum] = useState(0);
   const [percentage, setPercentage] = useState({
     funPercentage: 0,
     billsPercentage: 0,
     foodPercentage: 0,
     transportationPercentage: 0,
+  });
+  const [goalPercentage, setGoalPercentage] = useState({
+    goal1Percentage: 0,
+    goal2Percentage: 0,
+    goal3Percentage: 0,
+    goal4Percentage: 0,
   });
   const [monthDepSum, setMonthDepSum] = useState({
     jan: 0,
@@ -77,11 +89,14 @@ function App() {
       amount: deposit,
       description: depositDescription,
       date: date,
+      goal: goal,
     };
     setDeposits((prev) => [...prev, depositInfo]);
     getTotal();
+    setBtnClicked(true);
     setDepositDescription("");
     setDeposit("");
+    console.log(deposits);
   }
 
   //ADD EXPENSES
@@ -335,6 +350,51 @@ function App() {
     return roundedPercentage;
   }
 
+  //ASSIGN GOALS TO DEPOSITS
+
+  const goal1 = "Goal 1";
+  const goal2 = "Goal 2";
+  const goal3 = "Goal 3";
+  const goal4 = "None";
+
+  function assignGoal(button) {
+    const addGoal = deposits.map((item) => {
+      if (item.goal === "") {
+        return { ...item, goal: button };
+      } else {
+        return item;
+      }
+    });
+    setDeposits(addGoal);
+    addGoal.filter((item) => {
+      if (
+        item.goal === "Goal 1" &&
+        item.id === deposits[deposits.length - 1].id
+      ) {
+        setGoal1Sum((prev) => prev + Math.abs(item.amount));
+      } else if (
+        item.goal === "Goal 2" &&
+        item.id === deposits[deposits.length - 1].id
+      ) {
+        setGoal2Sum((prev) => prev + Math.abs(item.amount));
+      } else if (
+        item.goal === "Goal 3" &&
+        item.id === deposits[deposits.length - 1].id
+      ) {
+        setGoal3Sum((prev) => prev + Math.abs(item.amount));
+      } else if (
+        item.goal === "None" &&
+        item.id === deposits[deposits.length - 1].id
+      ) {
+        setGoal4Sum((prev) => prev + Math.abs(item.amount));
+      }
+    });
+    setBtnClicked((prev) => {
+      console.log(goal1Sum);
+      btnClicked: !prev;
+    });
+  }
+
   //ASSIGN CATEGORIES TO EXPENSES
 
   const btn1 = "Fun";
@@ -393,9 +453,23 @@ function App() {
     setPercentage((prev) => ({ ...(prev = newObj) }));
   }
 
+  function updateGoals() {
+    const newObj = {
+      goal1Percentage: getPercentage(goal1Sum, Math.abs(totalDeposits)),
+      goal2Percentage: getPercentage(goal2Sum, Math.abs(totalDeposits)),
+      goal3Percentage: getPercentage(goal3Sum, Math.abs(totalDeposits)),
+      goal4Percentage: getPercentage(goal4Sum, Math.abs(totalDeposits)),
+    };
+    setGoalPercentage((prev) => ({ ...(prev = newObj) }));
+  }
+
   useEffect(() => {
     updatePercentages();
   }, [expenses]);
+
+  useEffect(() => {
+    updateGoals();
+  }, [deposits]);
 
   useEffect(() => {
     updateMonthExpenses();
@@ -442,11 +516,21 @@ function App() {
                 totalDeposits={totalDeposits}
                 description={depositDescription}
                 setDescription={setDepositDescription}
-                funPercentage={percentage.funPercentage}
-                billsPercentage={percentage.billsPercentage}
-                foodPercentage={percentage.foodPercentage}
-                transportationPercentage={percentage.transportationPercentage}
+                goal1Percentage={goalPercentage.goal1Percentage}
+                goal2Percentage={goalPercentage.goal2Percentage}
+                goal3Percentage={goalPercentage.goal3Percentage}
+                goal4Percentage={goalPercentage.goal4Percentage}
                 btnClicked={btnClicked}
+                goal={goal}
+                assignGoal={assignGoal}
+                goal1={goal1}
+                goal2={goal2}
+                goal3={goal3}
+                goal4={goal4}
+                goal1Sum={goal1Sum}
+                goal2Sum={goal2Sum}
+                goal3Sum={goal3Sum}
+                goal4Sum={goal4Sum}
                 {...monthDepSum}
               />
             }
@@ -464,7 +548,6 @@ function App() {
                 setDescription={setExpenseDescription}
                 category={category}
                 assignCategory={assignCateogry}
-                setCategory={setCategory}
                 setBtnClicked={setBtnClicked}
                 btnClicked={btnClicked}
                 btn1={btn1}
@@ -480,6 +563,7 @@ function App() {
               />
             }
           />
+          <Route path="goals" element={<Goals />} />
         </Route>
       </Routes>
     </BrowserRouter>

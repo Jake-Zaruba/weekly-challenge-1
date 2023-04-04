@@ -1,6 +1,4 @@
 import React from "react";
-import PieChart from "./PieChart";
-import BarChart from "./BarChart";
 
 export default function NewExpense({
   expense,

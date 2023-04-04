@@ -1,18 +1,16 @@
 export default function PieChart({
-  funPercentage,
-  billsPercentage,
-  foodPercentage,
-  transportationPercentage,
+  value1,
+  value2,
+  value3,
+  value4,
   btnClicked,
 }) {
-  const funAngle = parseInt((funPercentage * 360).toFixed());
-  const billsAngle = parseInt((billsPercentage * 360).toFixed());
-  const foodAngle = parseInt((foodPercentage * 360).toFixed());
-  const transportationAngle = parseInt(
-    (transportationPercentage * 360).toFixed()
-  );
+  const angle1 = parseInt((value1 * 360).toFixed());
+  const angle2 = parseInt((value2 * 360).toFixed());
+  const angle3 = parseInt((value3 * 360).toFixed());
+  const angle4 = parseInt((value4 * 360).toFixed());
 
-  const angleArr = [funAngle, billsAngle, foodAngle, transportationAngle];
+  const angleArr = [angle1, angle2, angle3, angle4];
 
   // const sortedArr = angleArr.sort((num1, num2) => {
   //   return num1 - num2;
@@ -20,14 +18,8 @@ export default function PieChart({
 
   const [a, b, c, d] = angleArr;
 
-  function showPercentage() {
-    console.log(funAngle, billsAngle, foodAngle, transportationAngle);
-    console.log(angleArr);
-  }
-
   return (
     <>
-      {/* <button onClick={() => showPercentage()}>debug</button> */}
       <div
         style={{
           height: "15rem",

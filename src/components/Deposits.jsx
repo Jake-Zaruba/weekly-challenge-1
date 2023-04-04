@@ -10,10 +10,11 @@ export default function Deposits({
   totalDeposits,
   description,
   setDescription,
-  funPercentage,
-  billsPercentage,
-  foodPercentage,
-  transportationPercentage,
+  assignGoal,
+  goal1,
+  goal2,
+  goal3,
+  goal4,
   btnClicked,
   monthDepSum,
   jan,
@@ -28,10 +29,12 @@ export default function Deposits({
   oct,
   nov,
   dec,
+  goal,
+  goal1Percentage,
+  goal2Percentage,
+  goal3Percentage,
+  goal4Percentage,
 }) {
-  function debug() {
-    console.log(deposits);
-  }
   return (
     <>
       <div className="new-expense-container">
@@ -43,29 +46,31 @@ export default function Deposits({
           totalDeposits={totalDeposits}
           description={description}
           setDescription={setDescription}
-          funPercentage={funPercentage}
-          billsPercentage={billsPercentage}
-          foodPercentage={foodPercentage}
-          transportationPercentage={transportationPercentage}
+          goal={goal}
+          assignGoal={assignGoal}
+          goal1={goal1}
+          goal2={goal2}
+          goal3={goal3}
+          goal4={goal4}
           btnClicked={btnClicked}
         />
         <div className="pie-chart-container">
           <PieChart
-            funPercentage={funPercentage}
-            billsPercentage={billsPercentage}
-            foodPercentage={foodPercentage}
-            transportationPercentage={transportationPercentage}
+            value1={goal1Percentage}
+            value2={goal2Percentage}
+            value3={goal3Percentage}
+            value4={goal4Percentage}
             btnClicked={btnClicked}
           />
           <div className="legend">
             <div className="legend-icon"></div>
-            <span>Fun</span>
+            <span>Goal 1</span>
             <div className="legend-icon"></div>
-            <span>Bills</span>
+            <span>Goal 2</span>
             <div className="legend-icon"></div>
-            <span>Food</span>
+            <span>Goal 3</span>
             <div className="legend-icon"></div>
-            <span>Transporation</span>
+            <span>None</span>
           </div>
         </div>
         <BarChart
@@ -84,8 +89,6 @@ export default function Deposits({
           {...monthDepSum}
           total={totalDeposits}
         />
-
-        {/* <button onClick={() => debug()}></button> */}
       </div>
     </>
   );
