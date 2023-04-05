@@ -18,7 +18,14 @@ function App() {
   const [expenseDescription, setExpenseDescription] = useState("");
   const [category, setCategory] = useState("");
   const [categories, setCategories] = useState([]);
-  const [goal, setGoal] = useState("");
+  const [goal, setGoal] = useState([
+    {
+      id: null,
+      goalName: "",
+      goalAmount: 0,
+      goalCurrentAmount: 0,
+    },
+  ]);
   const [btnClicked, setBtnClicked] = useState(false);
   const [funSum, setFunSum] = useState(0);
   const [billsSum, setBillsSum] = useState(0);
@@ -359,7 +366,7 @@ function App() {
 
   function assignGoal(button) {
     const addGoal = deposits.map((item) => {
-      if (item.goal === "") {
+      if (item.goal.goalName === "") {
         return { ...item, goal: button };
       } else {
         return item;
@@ -368,22 +375,22 @@ function App() {
     setDeposits(addGoal);
     addGoal.filter((item) => {
       if (
-        item.goal === "Goal 1" &&
+        item.goal.goalName === "Goal 1" &&
         item.id === deposits[deposits.length - 1].id
       ) {
         setGoal1Sum((prev) => prev + Math.abs(item.amount));
       } else if (
-        item.goal === "Goal 2" &&
+        item.goal.goalName === "Goal 2" &&
         item.id === deposits[deposits.length - 1].id
       ) {
         setGoal2Sum((prev) => prev + Math.abs(item.amount));
       } else if (
-        item.goal === "Goal 3" &&
+        item.goal.goalName === "Goal 3" &&
         item.id === deposits[deposits.length - 1].id
       ) {
         setGoal3Sum((prev) => prev + Math.abs(item.amount));
       } else if (
-        item.goal === "None" &&
+        item.goal.goalName === "None" &&
         item.id === deposits[deposits.length - 1].id
       ) {
         setGoal4Sum((prev) => prev + Math.abs(item.amount));
@@ -563,7 +570,10 @@ function App() {
               />
             }
           />
-          <Route path="goals" element={<Goals />} />
+          <Route
+            path="goals"
+            element={<Goals goal={goal} setGoal={setGoal} />}
+          />
         </Route>
       </Routes>
     </BrowserRouter>

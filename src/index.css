@@ -512,3 +512,28 @@ textarea {
   font-size: 1rem;
   vertical-align: super;
 }
+
+.goal-container {
+  height: 15rem;
+  width: 15rem;
+  background-color: #213547;
+  border-radius: 50%;
+}
+
+.goal-container::after {
+  margin: 0.5rem 0 0 0.5rem;
+  display: block;
+  content: "";
+  height: 14rem;
+  width: 14rem;
+  background-color: #abc4aa;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.goal-modal,
+.goal-modal-overlay {
+  height: 100%;
+  width: 100%;
+  background-color: #213547;
+}
