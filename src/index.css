@@ -533,7 +533,22 @@ textarea {
 
 .goal-modal,
 .goal-modal-overlay {
-  height: 100%;
-  width: 100%;
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.goal-modal-overlay {
   background-color: #213547;
+  opacity: 50%;
+  z-index: -1;
+}
+
+.goal-modal-form {
+  display: flex;
+  flex-direction: column;
 }

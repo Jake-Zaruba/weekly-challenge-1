@@ -18,7 +18,7 @@ function App() {
   const [expenseDescription, setExpenseDescription] = useState("");
   const [category, setCategory] = useState("");
   const [categories, setCategories] = useState([]);
-  const [goal, setGoal] = useState([]);
+  const [goals, setGoals] = useState([]);
   const [btnClicked, setBtnClicked] = useState(false);
   const [funSum, setFunSum] = useState(0);
   const [billsSum, setBillsSum] = useState(0);
@@ -89,14 +89,8 @@ function App() {
       amount: deposit,
       description: depositDescription,
       date: date,
-      goal: goal,
     };
-    const goalInfo = {
-      id: null,
-      goalName: "",
-      goalAmount: 0,
-      goalCurrentAmount: 0,
-    },
+
     setDeposits((prev) => [...prev, depositInfo]);
     getTotal();
     setBtnClicked(true);
@@ -358,48 +352,49 @@ function App() {
 
   //ASSIGN GOALS TO DEPOSITS
 
-  const goal1 = "Goal 1";
-  const goal2 = "Goal 2";
-  const goal3 = "Goal 3";
-  const goal4 = "None";
+  // const goal1 = "Goal 1";
+  // const goal2 = "Goal 2";
+  // const goal3 = "Goal 3";
+  // const goal4 = "None";
 
-  function assignGoal(button) {
-    const addGoal = deposits.map((item) => {
-      if (item.goal.goalName === "") {
-        return { ...item, goal: button };
-      } else {
-        return item;
-      }
-    });
-    setDeposits(addGoal);
-    addGoal.filter((item) => {
-      if (
-        item.goal.goalName === "Goal 1" &&
-        item.id === deposits[deposits.length - 1].id
-      ) {
-        setGoal1Sum((prev) => prev + Math.abs(item.amount));
-      } else if (
-        item.goal.goalName === "Goal 2" &&
-        item.id === deposits[deposits.length - 1].id
-      ) {
-        setGoal2Sum((prev) => prev + Math.abs(item.amount));
-      } else if (
-        item.goal.goalName === "Goal 3" &&
-        item.id === deposits[deposits.length - 1].id
-      ) {
-        setGoal3Sum((prev) => prev + Math.abs(item.amount));
-      } else if (
-        item.goal.goalName === "None" &&
-        item.id === deposits[deposits.length - 1].id
-      ) {
-        setGoal4Sum((prev) => prev + Math.abs(item.amount));
-      }
-    });
-    setBtnClicked((prev) => {
-      console.log(goal1Sum);
-      btnClicked: !prev;
-    });
-  }
+  // function assignGoal(button) {
+  //   const addGoal = deposits.map((item) => {
+  //     if (item.goals.goalName === "") {
+  //       return { ...item, goals: button };
+  //     } else {
+  //       return item;
+  //     }
+  //   });
+  //   setDeposits(addGoal);
+  //   addGoal.filter((item) => {
+  //     if (
+  //       item.goals.goalName === "Goal 1" &&
+  //       item.id === deposits[deposits.length - 1].id
+  //     ) {
+  //       setGoal1Sum((prev) => prev + Math.abs(item.amount));
+  //     } else if (
+  //       item.goals.goalName === "Goal 2" &&
+  //       item.id === deposits[deposits.length - 1].id
+  //     ) {
+  //       setGoal2Sum((prev) => prev + Math.abs(item.amount));
+  //     } else if (
+  //       item.goals.goalName === "Goal 3" &&
+  //       item.id === deposits[deposits.length - 1].id
+  //     ) {
+  //       setGoal3Sum((prev) => prev + Math.abs(item.amount));
+  //     } else if (
+  //       item.goals.goalName === "None" &&
+  //       item.id === deposits[deposits.length - 1].id
+  //     ) {
+  //       setGoal4Sum((prev) => prev + Math.abs(item.amount));
+  //     }
+  //   });
+
+  //   setBtnClicked((prev) => {
+  //     console.log(goal1Sum);
+  //     btnClicked: !prev;
+  //   });
+  // }
 
   //ASSIGN CATEGORIES TO EXPENSES
 
@@ -459,23 +454,23 @@ function App() {
     setPercentage((prev) => ({ ...(prev = newObj) }));
   }
 
-  function updateGoals() {
-    const newObj = {
-      goal1Percentage: getPercentage(goal1Sum, Math.abs(totalDeposits)),
-      goal2Percentage: getPercentage(goal2Sum, Math.abs(totalDeposits)),
-      goal3Percentage: getPercentage(goal3Sum, Math.abs(totalDeposits)),
-      goal4Percentage: getPercentage(goal4Sum, Math.abs(totalDeposits)),
-    };
-    setGoalPercentage((prev) => ({ ...(prev = newObj) }));
-  }
+  // function updateGoals() {
+  //   const newObj = {
+  //     goal1Percentage: getPercentage(goal1Sum, Math.abs(totalDeposits)),
+  //     goal2Percentage: getPercentage(goal2Sum, Math.abs(totalDeposits)),
+  //     goal3Percentage: getPercentage(goal3Sum, Math.abs(totalDeposits)),
+  //     goal4Percentage: getPercentage(goal4Sum, Math.abs(totalDeposits)),
+  //   };
+  //   setGoalPercentage((prev) => ({ ...(prev = newObj) }));
+  // }
 
   useEffect(() => {
     updatePercentages();
   }, [expenses]);
 
-  useEffect(() => {
-    updateGoals();
-  }, [deposits]);
+  // useEffect(() => {
+  //   updateGoals();
+  // }, [deposits]);
 
   useEffect(() => {
     updateMonthExpenses();
@@ -527,12 +522,12 @@ function App() {
                 goal3Percentage={goalPercentage.goal3Percentage}
                 goal4Percentage={goalPercentage.goal4Percentage}
                 btnClicked={btnClicked}
-                goal={goal}
-                assignGoal={assignGoal}
-                goal1={goal1}
-                goal2={goal2}
-                goal3={goal3}
-                goal4={goal4}
+                goals={goals}
+                // assignGoal={assignGoal}
+                // goal1={goal1}
+                // goal2={goal2}
+                // goal3={goal3}
+                // goal4={goal4}
                 goal1Sum={goal1Sum}
                 goal2Sum={goal2Sum}
                 goal3Sum={goal3Sum}
@@ -571,7 +566,7 @@ function App() {
           />
           <Route
             path="goals"
-            element={<Goals goal={goal} setGoal={setGoal} />}
+            element={<Goals goals={goals} setGoals={setGoals} />}
           />
         </Route>
       </Routes>
