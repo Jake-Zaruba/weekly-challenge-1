@@ -18,14 +18,7 @@ function App() {
   const [expenseDescription, setExpenseDescription] = useState("");
   const [category, setCategory] = useState("");
   const [categories, setCategories] = useState([]);
-  const [goal, setGoal] = useState([
-    {
-      id: null,
-      goalName: "",
-      goalAmount: 0,
-      goalCurrentAmount: 0,
-    },
-  ]);
+  const [goal, setGoal] = useState([]);
   const [btnClicked, setBtnClicked] = useState(false);
   const [funSum, setFunSum] = useState(0);
   const [billsSum, setBillsSum] = useState(0);
@@ -98,6 +91,12 @@ function App() {
       date: date,
       goal: goal,
     };
+    const goalInfo = {
+      id: null,
+      goalName: "",
+      goalAmount: 0,
+      goalCurrentAmount: 0,
+    },
     setDeposits((prev) => [...prev, depositInfo]);
     getTotal();
     setBtnClicked(true);
