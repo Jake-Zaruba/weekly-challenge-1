@@ -9,6 +9,7 @@ export default function NewDeposit({
   description,
   setDescription,
   assignGoal,
+  goals,
   goal1,
   goal2,
   goal3,

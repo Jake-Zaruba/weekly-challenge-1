@@ -352,49 +352,49 @@ function App() {
 
   //ASSIGN GOALS TO DEPOSITS
 
-  // const goal1 = "Goal 1";
-  // const goal2 = "Goal 2";
-  // const goal3 = "Goal 3";
-  // const goal4 = "None";
+  const goal1 = `${goals[0]?.goalName}`;
+  const goal2 = `${goals[1]?.goalName}`;
+  const goal3 = `${goals[2]?.goalName}`;
+  const goal4 = "None";
 
-  // function assignGoal(button) {
-  //   const addGoal = deposits.map((item) => {
-  //     if (item.goals.goalName === "") {
-  //       return { ...item, goals: button };
-  //     } else {
-  //       return item;
-  //     }
-  //   });
-  //   setDeposits(addGoal);
-  //   addGoal.filter((item) => {
-  //     if (
-  //       item.goals.goalName === "Goal 1" &&
-  //       item.id === deposits[deposits.length - 1].id
-  //     ) {
-  //       setGoal1Sum((prev) => prev + Math.abs(item.amount));
-  //     } else if (
-  //       item.goals.goalName === "Goal 2" &&
-  //       item.id === deposits[deposits.length - 1].id
-  //     ) {
-  //       setGoal2Sum((prev) => prev + Math.abs(item.amount));
-  //     } else if (
-  //       item.goals.goalName === "Goal 3" &&
-  //       item.id === deposits[deposits.length - 1].id
-  //     ) {
-  //       setGoal3Sum((prev) => prev + Math.abs(item.amount));
-  //     } else if (
-  //       item.goals.goalName === "None" &&
-  //       item.id === deposits[deposits.length - 1].id
-  //     ) {
-  //       setGoal4Sum((prev) => prev + Math.abs(item.amount));
-  //     }
-  //   });
+  function assignGoal(button) {
+    const addGoal = deposits.map((item) => {
+      if (item.goals[0].goalName === "") {
+        return { ...item, goals: button };
+      } else {
+        return item;
+      }
+    });
+    setDeposits(addGoal);
+    addGoal.filter((item) => {
+      if (
+        item.goals[0].goalName === `${goals[0].goalName}` &&
+        item.id === deposits[deposits.length - 1].id
+      ) {
+        setGoal1Sum((prev) => prev + Math.abs(item.amount));
+      } else if (
+        item.goals[1].goalName === `${goals[1].goalName}` &&
+        item.id === deposits[deposits.length - 1].id
+      ) {
+        setGoal2Sum((prev) => prev + Math.abs(item.amount));
+      } else if (
+        item.goals[2].goalName === `${goals[2].goalName}` &&
+        item.id === deposits[deposits.length - 1].id
+      ) {
+        setGoal3Sum((prev) => prev + Math.abs(item.amount));
+      } else if (
+        item.goals[3].goalName === "None" &&
+        item.id === deposits[deposits.length - 1].id
+      ) {
+        setGoal4Sum((prev) => prev + Math.abs(item.amount));
+      }
+    });
 
-  //   setBtnClicked((prev) => {
-  //     console.log(goal1Sum);
-  //     btnClicked: !prev;
-  //   });
-  // }
+    setBtnClicked((prev) => {
+      console.log(goal1Sum);
+      btnClicked: !prev;
+    });
+  }
 
   //ASSIGN CATEGORIES TO EXPENSES
 
@@ -454,23 +454,23 @@ function App() {
     setPercentage((prev) => ({ ...(prev = newObj) }));
   }
 
-  // function updateGoals() {
-  //   const newObj = {
-  //     goal1Percentage: getPercentage(goal1Sum, Math.abs(totalDeposits)),
-  //     goal2Percentage: getPercentage(goal2Sum, Math.abs(totalDeposits)),
-  //     goal3Percentage: getPercentage(goal3Sum, Math.abs(totalDeposits)),
-  //     goal4Percentage: getPercentage(goal4Sum, Math.abs(totalDeposits)),
-  //   };
-  //   setGoalPercentage((prev) => ({ ...(prev = newObj) }));
-  // }
+  function updateGoals() {
+    const newObj = {
+      goal1Percentage: getPercentage(goal1Sum, Math.abs(totalDeposits)),
+      goal2Percentage: getPercentage(goal2Sum, Math.abs(totalDeposits)),
+      goal3Percentage: getPercentage(goal3Sum, Math.abs(totalDeposits)),
+      goal4Percentage: getPercentage(goal4Sum, Math.abs(totalDeposits)),
+    };
+    setGoalPercentage((prev) => ({ ...(prev = newObj) }));
+  }
 
   useEffect(() => {
     updatePercentages();
   }, [expenses]);
 
-  // useEffect(() => {
-  //   updateGoals();
-  // }, [deposits]);
+  useEffect(() => {
+    updateGoals();
+  }, [deposits]);
 
   useEffect(() => {
     updateMonthExpenses();
@@ -523,11 +523,11 @@ function App() {
                 goal4Percentage={goalPercentage.goal4Percentage}
                 btnClicked={btnClicked}
                 goals={goals}
-                // assignGoal={assignGoal}
-                // goal1={goal1}
-                // goal2={goal2}
-                // goal3={goal3}
-                // goal4={goal4}
+                assignGoal={assignGoal}
+                goal1={goal1}
+                goal2={goal2}
+                goal3={goal3}
+                goal4={goal4}
                 goal1Sum={goal1Sum}
                 goal2Sum={goal2Sum}
                 goal3Sum={goal3Sum}
