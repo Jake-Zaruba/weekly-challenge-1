@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Goal from "./Goal";
 
-export default function Goals(goals, setGoals) {
+export default function Goals({ goals, setGoals }) {
   const [modal, setModal] = useState(false);
   const [goalName, setGoalName] = useState("");
   const [goalAmount, setGoalAmount] = useState(0);
@@ -21,6 +21,7 @@ export default function Goals(goals, setGoals) {
     setGoalName("");
     setGoalAmount(0);
     toggleModal();
+    console.log(goals);
   }
 
   return (
