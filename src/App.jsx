@@ -90,6 +90,7 @@ function App() {
       description: depositDescription,
       date: date,
       goal: "",
+      goalContribution: 0,
     };
 
     setDeposits((prev) => [...prev, depositInfo]);
@@ -97,7 +98,6 @@ function App() {
     setBtnClicked(true);
     setDepositDescription("");
     setDeposit("");
-    console.log(deposits);
   }
 
   //ADD EXPENSES
@@ -358,11 +358,10 @@ function App() {
   const goal3 = `${goals[2]?.goalName}`;
   const goal4 = "None";
 
-  function assignGoal(button) {
+  function assignGoal(buttonName, buttonAmount) {
     const addGoal = deposits.map((item) => {
-      const newGoalName = goals[0].goalName;
       if (item.goal === "") {
-        return { ...item, newGoalName: button };
+        return { ...item, goal: buttonName, goalContribution: item.amount };
       } else {
         return item;
       }
