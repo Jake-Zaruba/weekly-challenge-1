@@ -89,6 +89,7 @@ function App() {
       amount: deposit,
       description: depositDescription,
       date: date,
+      goal: "",
     };
 
     setDeposits((prev) => [...prev, depositInfo]);
@@ -359,8 +360,9 @@ function App() {
 
   function assignGoal(button) {
     const addGoal = deposits.map((item) => {
-      if (item.goals[0].goalName === "") {
-        return { ...item, goals: button };
+      const newGoalName = goals[0].goalName;
+      if (item.goal === "") {
+        return { ...item, newGoalName: button };
       } else {
         return item;
       }
@@ -368,22 +370,22 @@ function App() {
     setDeposits(addGoal);
     addGoal.filter((item) => {
       if (
-        item.goals[0].goalName === `${goals[0].goalName}` &&
+        item.goal === `${goals[0].goalName}` &&
         item.id === deposits[deposits.length - 1].id
       ) {
         setGoal1Sum((prev) => prev + Math.abs(item.amount));
       } else if (
-        item.goals[1].goalName === `${goals[1].goalName}` &&
+        item.goal === `${goals[1].goalName}` &&
         item.id === deposits[deposits.length - 1].id
       ) {
         setGoal2Sum((prev) => prev + Math.abs(item.amount));
       } else if (
-        item.goals[2].goalName === `${goals[2].goalName}` &&
+        item.goal === `${goals[2].goalName}` &&
         item.id === deposits[deposits.length - 1].id
       ) {
         setGoal3Sum((prev) => prev + Math.abs(item.amount));
       } else if (
-        item.goals[3].goalName === "None" &&
+        item.goal === "None" &&
         item.id === deposits[deposits.length - 1].id
       ) {
         setGoal4Sum((prev) => prev + Math.abs(item.amount));
@@ -391,7 +393,7 @@ function App() {
     });
 
     setBtnClicked((prev) => {
-      console.log(goal1Sum);
+      console.log(deposits);
       btnClicked: !prev;
     });
   }
