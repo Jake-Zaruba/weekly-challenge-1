@@ -22,17 +22,25 @@ export default function Goals({
     const goalInfo = {
       id: Math.floor(Math.random() * 1000),
       goalName: goalName,
-      goalAmount: goalAmount,
+      goalAmount: parseInt(goalAmount),
       goalCurrentAmount: 0,
     };
     setGoals((prev) => [...prev, goalInfo]);
     setGoalName("");
     setGoalAmount(0);
     toggleModal();
-    console.log(goals);
+    console.log(goal1Progress);
   }
 
-  getPercentage();
+  const goal1Progress = parseFloat(
+    getPercentage(goal1Sum, goals[0]?.goalAmount) * 100
+  );
+  const goal2Progress = parseFloat(
+    getPercentage(goal2Sum, goals[1]?.goalAmount) * 100
+  );
+  const goal3Progress = parseFloat(
+    getPercentage(goal3Sum, goals[2]?.goalAmount) * 100
+  );
 
   return (
     <>
@@ -52,14 +60,18 @@ export default function Goals({
                 type="number"
                 value={goalAmount}
                 onChange={(e) => setGoalAmount(e.target.value)}
-                placeholder="Goal Amount"
+                placeholder="$0"
               />
               <button onClick={() => addGoal()}>Add Goal</button>
             </div>
           </div>
         )}
 
-        <Goal />
+        <Goal
+          goal1Progress={goal1Progress}
+          goal2Progress={goal2Progress}
+          goal3Progress={goal3Progress}
+        />
       </div>
     </>
   );

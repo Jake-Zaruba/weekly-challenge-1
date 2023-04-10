@@ -34,7 +34,6 @@ export default function NewDeposit({
             className="text-input"
             value={description}
             onChange={(e) => {
-              // console.log(description);
               setDescription(e.target.value);
             }}
             type="text"

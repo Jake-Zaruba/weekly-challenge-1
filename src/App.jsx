@@ -369,17 +369,17 @@ function App() {
     setDeposits(addGoal);
     addGoal.filter((item) => {
       if (
-        item.goal === `${goals[0].goalName}` &&
+        item.goal === `${goals[0]?.goalName}` &&
         item.id === deposits[deposits.length - 1].id
       ) {
         setGoal1Sum((prev) => prev + item.amount);
       } else if (
-        item.goal === `${goals[1].goalName}` &&
+        item.goal === `${goals[1]?.goalName}` &&
         item.id === deposits[deposits.length - 1].id
       ) {
         setGoal2Sum((prev) => prev + item.amount);
       } else if (
-        item.goal === `${goals[2].goalName}` &&
+        item.goal === `${goals[2]?.goalName}` &&
         item.id === deposits[deposits.length - 1].id
       ) {
         setGoal3Sum((prev) => prev + item.amount);

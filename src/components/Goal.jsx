@@ -1,12 +1,12 @@
-export default function Goal() {
-  // const style = {
-  //   backgroundImage: `conic-gradient(#698269 0deg ${a}deg #${
-  //     d === 0 ? "f1dbbf5e" : "AA5656"
-  //   } ${a + b + c}deg 360deg)`,
-  // };
+export default function Goal({ goal1Progress, goal2Progress, goal3Progress }) {
   return (
     <>
-      <div className="goal-container"></div>
+      <div
+        style={{
+          backgroundImage: `conic-gradient(blue 0% ${goal1Progress}%, red ${goal1Progress} 100%)`,
+        }}
+        className="goal-container"
+      ></div>
     </>
   );
 }
