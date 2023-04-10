@@ -358,10 +358,10 @@ function App() {
   const goal3 = `${goals[2]?.goalName}`;
   const goal4 = "None";
 
-  function assignGoal(buttonName, buttonAmount) {
+  function assignGoal(button) {
     const addGoal = deposits.map((item) => {
       if (item.goal === "") {
-        return { ...item, goal: buttonName, goalContribution: item.amount };
+        return { ...item, goal: button };
       } else {
         return item;
       }
@@ -372,27 +372,27 @@ function App() {
         item.goal === `${goals[0].goalName}` &&
         item.id === deposits[deposits.length - 1].id
       ) {
-        setGoal1Sum((prev) => prev + Math.abs(item.amount));
+        setGoal1Sum((prev) => prev + item.amount);
       } else if (
         item.goal === `${goals[1].goalName}` &&
         item.id === deposits[deposits.length - 1].id
       ) {
-        setGoal2Sum((prev) => prev + Math.abs(item.amount));
+        setGoal2Sum((prev) => prev + item.amount);
       } else if (
         item.goal === `${goals[2].goalName}` &&
         item.id === deposits[deposits.length - 1].id
       ) {
-        setGoal3Sum((prev) => prev + Math.abs(item.amount));
+        setGoal3Sum((prev) => prev + item.amount);
       } else if (
         item.goal === "None" &&
         item.id === deposits[deposits.length - 1].id
       ) {
-        setGoal4Sum((prev) => prev + Math.abs(item.amount));
+        setGoal4Sum((prev) => prev + item.amount);
       }
     });
 
     setBtnClicked((prev) => {
-      console.log(deposits);
+      console.log(goal1Sum);
       btnClicked: !prev;
     });
   }
@@ -567,7 +567,17 @@ function App() {
           />
           <Route
             path="goals"
-            element={<Goals goals={goals} setGoals={setGoals} />}
+            element={
+              <Goals
+                goals={goals}
+                setGoals={setGoals}
+                goal1Sum={goal1Sum}
+                goal2Sum={goal2Sum}
+                goal3Sum={goal3Sum}
+                goal4Sum={goal4Sum}
+                getPercentage={getPercentage}
+              />
+            }
           />
         </Route>
       </Routes>
