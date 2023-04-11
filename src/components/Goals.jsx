@@ -50,6 +50,9 @@ export default function Goals({
           <div className="goal-modal">
             <div className="goal-modal-overlay"></div>
             <div className="goal-modal-form">
+              <button className="close-modal-btn" onClick={() => toggleModal()}>
+                X
+              </button>
               <input
                 type="text"
                 value={goalName}

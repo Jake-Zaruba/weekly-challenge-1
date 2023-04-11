@@ -168,7 +168,6 @@ h4 {
   border: 2px solid white;
   border-left: none;
   background-color: #abc4aa;
-  /* box-shadow: 0px 3px 10px #3333335b; */
 }
 
 .add-amount-container {
@@ -514,9 +513,17 @@ textarea {
 }
 
 .goal-container {
+  position: relative;
   height: 15rem;
   width: 15rem;
   border-radius: 50%;
+}
+
+.goal-progress-text {
+  position: absolute;
+  top: 40%;
+  left: 37%;
+  font-size: 2rem;
 }
 
 .goal-container::after {
@@ -541,6 +548,12 @@ textarea {
   bottom: 0;
 }
 
+.goal-modal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .goal-modal-overlay {
   background-color: #213547;
   opacity: 50%;
@@ -548,6 +561,19 @@ textarea {
 }
 
 .goal-modal-form {
+  position: relative;
   display: flex;
   flex-direction: column;
+  gap: 1rem;
+  width: 25rem;
+  padding: 5rem;
+  background-color: #e4e4e4;
+  border-radius: 12px;
+}
+
+.close-modal-btn {
+  position: absolute;
+  border: none;
+  top: 0.5rem;
+  right: 0.5rem;
 }

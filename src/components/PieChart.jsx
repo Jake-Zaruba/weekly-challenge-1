@@ -12,10 +12,6 @@ export default function PieChart({
 
   const angleArr = [angle1, angle2, angle3, angle4];
 
-  // const sortedArr = angleArr.sort((num1, num2) => {
-  //   return num1 - num2;
-  // });
-
   const [a, b, c, d] = angleArr;
 
   return (
