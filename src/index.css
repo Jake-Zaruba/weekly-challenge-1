@@ -512,10 +512,42 @@ textarea {
   vertical-align: super;
 }
 
+.goals-page-container {
+  height: 60rem;
+  width: 60vw;
+  padding: 2rem;
+  border-top-right-radius: 1.2rem;
+  border-bottom-right-radius: 1.2rem;
+  border: 2px solid white;
+  border-left: none;
+  background-color: #abc4aa;
+}
+
+.add-goal-btn {
+  height: 3rem;
+  width: 10rem;
+  font-size: 1.6rem;
+}
+
+.goals {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
 .goal-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  border: solid white 2px;
+  border-radius: 12px;
+  padding: 1rem;
+}
+
+.goal-progress-bar {
   position: relative;
-  height: 15rem;
-  width: 15rem;
+  height: 11rem;
+  width: 11rem;
   border-radius: 50%;
 }
 
@@ -523,15 +555,17 @@ textarea {
   position: absolute;
   top: 40%;
   left: 37%;
-  font-size: 2rem;
+  font-size: 1.6rem;
+  z-index: 2;
 }
 
-.goal-container::after {
+.goal-progress-bar::after {
+  position: absolute;
   margin: 0.5rem 0 0 0.5rem;
   display: block;
   content: "";
-  height: 14rem;
-  width: 14rem;
+  height: 10rem;
+  width: 10rem;
   background-color: #abc4aa;
   border-radius: 50%;
   z-index: 1;

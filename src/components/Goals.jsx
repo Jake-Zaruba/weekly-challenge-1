@@ -44,8 +44,10 @@ export default function Goals({
 
   return (
     <>
-      <div className="new-expense-container">
-        <button onClick={() => toggleModal()}>Add goal</button>
+      <div className="goals-page-container">
+        <button className="add-goal-btn" onClick={() => toggleModal()}>
+          Add goal
+        </button>
         {modal && (
           <div className="goal-modal">
             <div className="goal-modal-overlay"></div>
@@ -69,8 +71,8 @@ export default function Goals({
             </div>
           </div>
         )}
-
         <Goal
+          goals={goals}
           goal1Progress={goal1Progress}
           goal2Progress={goal2Progress}
           goal3Progress={goal3Progress}

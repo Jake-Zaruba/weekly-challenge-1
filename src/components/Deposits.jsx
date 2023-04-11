@@ -30,6 +30,7 @@ export default function Deposits({
   nov,
   dec,
   goal,
+  goals,
   goal1Percentage,
   goal2Percentage,
   goal3Percentage,
@@ -64,11 +65,11 @@ export default function Deposits({
           />
           <div className="legend">
             <div className="legend-icon"></div>
-            <span>Goal 1</span>
+            <span>{goals[0]?.goalName}</span>
             <div className="legend-icon"></div>
-            <span>Goal 2</span>
+            <span>{goals[1]?.goalName}</span>
             <div className="legend-icon"></div>
-            <span>Goal 3</span>
+            <span>{goals[2]?.goalName}</span>
             <div className="legend-icon"></div>
             <span>None</span>
           </div>
