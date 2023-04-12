@@ -527,12 +527,13 @@ textarea {
   height: 3rem;
   width: 10rem;
   font-size: 1.6rem;
+  margin-bottom: 2rem;
 }
 
 .goals {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 2rem;
 }
 
 .goal-container {

@@ -15,7 +15,9 @@ export default function Goals({
   const [goalAmount, setGoalAmount] = useState(0);
 
   function toggleModal() {
-    setModal((prev) => !prev);
+    if (goals.length > 2) {
+      alert("Please reomve or complete a goal to add a new goal.");
+    } else setModal((prev) => !prev);
   }
 
   function addGoal() {
@@ -76,6 +78,9 @@ export default function Goals({
           goal1Progress={goal1Progress}
           goal2Progress={goal2Progress}
           goal3Progress={goal3Progress}
+          goal1Sum={goal1Sum}
+          goal2Sum={goal2Sum}
+          goal3Sum={goal3Sum}
         />
       </div>
     </>

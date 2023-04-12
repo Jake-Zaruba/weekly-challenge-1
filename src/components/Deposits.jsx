@@ -64,14 +64,14 @@ export default function Deposits({
             btnClicked={btnClicked}
           />
           <div className="legend">
-            <div className="legend-icon"></div>
-            <span>{goals[0]?.goalName}</span>
-            <div className="legend-icon"></div>
-            <span>{goals[1]?.goalName}</span>
-            <div className="legend-icon"></div>
-            <span>{goals[2]?.goalName}</span>
-            <div className="legend-icon"></div>
-            <span>None</span>
+            {goals[0] && <div className="legend-icon"></div>}
+            {goals[0] && <span>{goals[0]?.goalName}</span>}
+            {goals[1] && <div className="legend-icon"></div>}
+            {goals[1] && <span>{goals[1]?.goalName}</span>}
+            {goals[2] && <div className="legend-icon"></div>}
+            {goals[2] && <span>{goals[2]?.goalName}</span>}
+            {totalDeposits > 0 && <div className="legend-icon"></div>}
+            {totalDeposits > 0 && <span>None</span>}
           </div>
         </div>
         <BarChart
