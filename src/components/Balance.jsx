@@ -1,23 +1,17 @@
 import React from "react";
-import PieChart from "./PieChart";
+import MiniGoal from "./MiniGoal";
 import { Outlet } from "react-router-dom";
 
 export default function Balance({
-  getTotal,
   total,
   totalExpenses,
   totalDeposits,
   deposits,
   expenses,
-  funPercentage,
-  billsPercentage,
-  foodPercentage,
-  transportationPercentage,
-  funSum,
-  billsSum,
-  foodSum,
-  transportationSum,
-  btnClicked,
+  goals,
+  goal1Progress,
+  goal2Progress,
+  goal3Progress,
 }) {
   return (
     <>
@@ -53,31 +47,12 @@ export default function Balance({
             )}
           </div>
         </div>
-        <PieChart
-          total={total}
-          expenses={expenses}
-          totalExpenses={totalExpenses}
-          totalDeposits={totalDeposits}
-          funPercentage={funPercentage}
-          billsPercentage={billsPercentage}
-          foodPercentage={foodPercentage}
-          transportationPercentage={transportationPercentage}
-          funSum={funSum}
-          billsSum={billsSum}
-          foodSum={foodSum}
-          transportationSum={transportationSum}
-          btnClicked={btnClicked}
+        <MiniGoal
+          goals={goals}
+          goal1Progress={goal1Progress}
+          goal2Progress={goal2Progress}
+          goal3Progress={goal3Progress}
         />
-        <div className="legend">
-          <div className="legend-icon"></div>
-          <span>Fun</span>
-          <div className="legend-icon"></div>
-          <span>Bills</span>
-          <div className="legend-icon"></div>
-          <span>Food</span>
-          <div className="legend-icon"></div>
-          <span>Transporation</span>
-        </div>
         <div className="recent-container">
           <h4>Recent</h4>
           <div id="recent-expense">

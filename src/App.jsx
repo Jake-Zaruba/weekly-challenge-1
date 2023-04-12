@@ -397,6 +397,16 @@ function App() {
     });
   }
 
+  const goal1Progress = parseFloat(
+    getPercentage(goal1Sum, goals[0]?.goalAmount) * 100
+  );
+  const goal2Progress = parseFloat(
+    getPercentage(goal2Sum, goals[1]?.goalAmount) * 100
+  );
+  const goal3Progress = parseFloat(
+    getPercentage(goal3Sum, goals[2]?.goalAmount) * 100
+  );
+
   //ASSIGN CATEGORIES TO EXPENSES
 
   const btn1 = "Fun";
@@ -504,6 +514,11 @@ function App() {
                 foodSum={foodSum}
                 transportationSum={transportationSum}
                 btnClicked={btnClicked}
+                goals={goals}
+                goal1Sum={goal1Sum}
+                goal2Sum={goal2Sum}
+                goal3Sum={goal3Sum}
+                goal4Sum={goal4Sum}
               />
             }
           />
@@ -576,6 +591,9 @@ function App() {
                 goal3Sum={goal3Sum}
                 goal4Sum={goal4Sum}
                 getPercentage={getPercentage}
+                goal1Progress={goal1Progress}
+                goal2Progress={goal2Progress}
+                goal3Progress={goal3Progress}
               />
             }
           />

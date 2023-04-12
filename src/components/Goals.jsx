@@ -7,6 +7,9 @@ export default function Goals({
   goal1Sum,
   goal2Sum,
   goal3Sum,
+  goal1Progress,
+  goal2Progress,
+  goal3Progress,
   goal4Sum,
   getPercentage,
 }) {
@@ -33,16 +36,6 @@ export default function Goals({
     toggleModal();
     console.log(goal1Progress);
   }
-
-  const goal1Progress = parseFloat(
-    getPercentage(goal1Sum, goals[0]?.goalAmount) * 100
-  );
-  const goal2Progress = parseFloat(
-    getPercentage(goal2Sum, goals[1]?.goalAmount) * 100
-  );
-  const goal3Progress = parseFloat(
-    getPercentage(goal3Sum, goals[2]?.goalAmount) * 100
-  );
 
   return (
     <>
