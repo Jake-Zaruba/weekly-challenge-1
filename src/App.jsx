@@ -515,6 +515,10 @@ function App() {
                 transportationSum={transportationSum}
                 btnClicked={btnClicked}
                 goals={goals}
+                getPercentage={getPercentage}
+                goal1Progress={goal1Progress}
+                goal2Progress={goal2Progress}
+                goal3Progress={goal3Progress}
                 goal1Sum={goal1Sum}
                 goal2Sum={goal2Sum}
                 goal3Sum={goal3Sum}

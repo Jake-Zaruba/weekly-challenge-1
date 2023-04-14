@@ -40,7 +40,7 @@ export default function Goal({
               <h2>{goals[1].goalName}</h2>
               <p>${goals[1].goalAmount.toLocaleString("en-US")}</p>
             </div>
-            <h2>Remaining balance: ${goals[1].goalAmount - goal1Sum}</h2>
+            <h2>Remaining balance: ${goals[1].goalAmount - goal2Sum}</h2>
             <div
               style={{
                 backgroundImage: `conic-gradient(#213547 0deg ${goal2Angle}deg, #abc4aa ${goal2Angle}deg)`,
@@ -57,7 +57,7 @@ export default function Goal({
               <h2>{goals[2].goalName}</h2>
               <p>${goals[2].goalAmount.toLocaleString("en-US")}</p>
             </div>
-            <h2>Remaining balance: ${goals[2].goalAmount - goal1Sum}</h2>
+            <h2>Remaining balance: ${goals[2].goalAmount - goal3Sum}</h2>
             <div
               style={{
                 backgroundImage: `conic-gradient(#213547 0deg ${goal3Angle}deg, #abc4aa ${goal3Angle}deg)`,

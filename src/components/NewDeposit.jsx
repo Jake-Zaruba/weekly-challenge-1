@@ -48,26 +48,32 @@ export default function NewDeposit({
             onClick={() => assignGoal(goal1)}
             // onBlur={() => categoryAlert()}
             className={
-              !btnClicked ? "category-btn" : "category-btn cat-1-animation"
+              !btnClicked
+                ? "category-btn"
+                : "category-btn cat-1-animation goal-btn"
             }
           >
-            🏠
+            {btnClicked && goals[0]?.goalName}
           </button>
           <button
             onClick={() => assignGoal(goal2)}
             className={
-              !btnClicked ? "category-btn" : "category-btn cat-2-animation"
+              !btnClicked
+                ? "category-btn"
+                : "category-btn cat-2-animation goal-btn"
             }
           >
-            🚗
+            {btnClicked && goals[1]?.goalName}
           </button>
           <button
             onClick={() => assignGoal(goal3)}
             className={
-              !btnClicked ? "category-btn" : "category-btn cat-3-animation"
+              !btnClicked
+                ? "category-btn"
+                : "category-btn cat-3-animation goal-btn"
             }
           >
-            🌴
+            {btnClicked && goals[2]?.goalName}
           </button>
           <button
             onClick={() => assignGoal(goal4)}

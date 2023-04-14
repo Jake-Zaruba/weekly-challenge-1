@@ -48,6 +48,7 @@ export default function Deposits({
           description={description}
           setDescription={setDescription}
           goal={goal}
+          goals={goals}
           assignGoal={assignGoal}
           goal1={goal1}
           goal2={goal2}

@@ -15,7 +15,7 @@ export default function Goals({
 }) {
   const [modal, setModal] = useState(false);
   const [goalName, setGoalName] = useState("");
-  const [goalAmount, setGoalAmount] = useState(0);
+  const [goalAmount, setGoalAmount] = useState(null);
 
   function toggleModal() {
     if (goals.length > 2) {
@@ -58,7 +58,7 @@ export default function Goals({
               />
               <input
                 type="number"
-                value={goalAmount}
+                value={!goalAmount ? "" : goalAmount}
                 onChange={(e) => setGoalAmount(e.target.value)}
                 placeholder="$0"
               />

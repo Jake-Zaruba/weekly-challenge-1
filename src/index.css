@@ -209,6 +209,11 @@ h4 {
   /* transition: all 0.75s; */
 }
 
+.goal-btn {
+  font-size: 1rem;
+  text-align: center;
+}
+
 .cat-1-animation {
   animation: category-1 0.5s cubic-bezier(0, 0, 0.58, 1) forwards;
 }
@@ -611,4 +616,8 @@ textarea {
   border: none;
   top: 0.5rem;
   right: 0.5rem;
+}
+
+.balance-container .goals {
+  justify-self: center;
 }

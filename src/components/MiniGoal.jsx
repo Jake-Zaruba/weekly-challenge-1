@@ -10,7 +10,7 @@ export default function Goal({
 
   return (
     <>
-      <div className="goals">
+      <div className="goals" style={{ width: "75%" }}>
         {goals[0] && (
           <div className="goal-container">
             <div>
@@ -19,6 +19,7 @@ export default function Goal({
               <div
                 style={{
                   backgroundImage: `conic-gradient(#213547 0deg ${goal1Angle}deg, #abc4aa ${goal1Angle}deg)`,
+                  marginTop: "2rem",
                 }}
                 className="goal-progress-bar"
               >
@@ -35,6 +36,7 @@ export default function Goal({
               <div
                 style={{
                   backgroundImage: `conic-gradient(#213547 0deg ${goal2Angle}deg, #abc4aa ${goal2Angle}deg)`,
+                  marginTop: "2rem",
                 }}
                 className="goal-progress-bar"
               >
@@ -52,6 +54,7 @@ export default function Goal({
             <div
               style={{
                 backgroundImage: `conic-gradient(#213547 0deg ${goal3Angle}deg, #abc4aa ${goal3Angle}deg)`,
+                marginTop: "2rem",
               }}
               className="goal-progress-bar"
             >
