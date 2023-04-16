@@ -12,7 +12,7 @@ export default function Goal({
     <>
       <div className="goals" style={{ width: "75%" }}>
         {goals[0] && (
-          <div className="goal-container">
+          <div className="goal-container mini">
             <div>
               <h2>{goals[0].goalName}</h2>
               <p>${goals[0].goalAmount.toLocaleString("en-US")}</p>
@@ -34,6 +34,7 @@ export default function Goal({
               <h2>{goals[1].goalName}</h2>
               <p>${goals[1].goalAmount.toLocaleString("en-US")}</p>
               <div
+                className="mini"
                 style={{
                   backgroundImage: `conic-gradient(#213547 0deg ${goal2Angle}deg, #abc4aa ${goal2Angle}deg)`,
                   marginTop: "2rem",
