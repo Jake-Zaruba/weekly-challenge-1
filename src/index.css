@@ -71,7 +71,7 @@ ion-icon {
 
 .balance-container {
   display: grid;
-  grid-template-columns: 0.5fr 1fr 1fr 0.5fr;
+  grid-template-columns: repeat(3, 1fr);
   grid-template-rows: 1fr 0.5fr repeat(2, 1fr);
   align-items: center;
   padding: 2rem;
@@ -577,11 +577,6 @@ textarea {
   z-index: 1;
 }
 
-.mini {
-  height: 5rem;
-  width: 5rem;
-}
-
 .goal-modal,
 .goal-modal-overlay {
   position: fixed;
@@ -625,8 +620,4 @@ textarea {
 
 .balance-container .goals {
   justify-self: center;
-}
-
-.goal-containter .mini {
-  grid-column: 2 span 3;
 }

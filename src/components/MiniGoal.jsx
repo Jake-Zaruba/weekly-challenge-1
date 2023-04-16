@@ -12,42 +12,39 @@ export default function Goal({
     <>
       <div className="goals" style={{ width: "75%" }}>
         {goals[0] && (
-          <div className="goal-container mini">
+          <div className=" goal-container">
             <div>
               <h2>{goals[0].goalName}</h2>
               <p>${goals[0].goalAmount.toLocaleString("en-US")}</p>
-              <div
-                style={{
-                  backgroundImage: `conic-gradient(#213547 0deg ${goal1Angle}deg, #abc4aa ${goal1Angle}deg)`,
-                  marginTop: "2rem",
-                }}
-                className="goal-progress-bar"
-              >
-                <div className="goal-progress-text">{goal1Progress}%</div>
-              </div>
+            </div>
+            <div
+              style={{
+                backgroundImage: `conic-gradient(#213547 0deg ${goal1Angle}deg, #abc4aa ${goal1Angle}deg)`,
+              }}
+              className="goal-progress-bar"
+            >
+              <div className="goal-progress-text">{goal1Progress}%</div>
             </div>
           </div>
         )}
         {goals[1] && (
-          <div className="goal-container">
-            <div style={{ display: "flex", flexDirection: "column" }}>
+          <div className=" goal-container">
+            <div>
               <h2>{goals[1].goalName}</h2>
               <p>${goals[1].goalAmount.toLocaleString("en-US")}</p>
-              <div
-                className="mini"
-                style={{
-                  backgroundImage: `conic-gradient(#213547 0deg ${goal2Angle}deg, #abc4aa ${goal2Angle}deg)`,
-                  marginTop: "2rem",
-                }}
-                className="goal-progress-bar"
-              >
-                <div className="goal-progress-text">{goal2Progress}%</div>
-              </div>
+            </div>
+            <div
+              style={{
+                backgroundImage: `conic-gradient(#213547 0deg ${goal2Angle}deg, #abc4aa ${goal2Angle}deg)`,
+              }}
+              className="goal-progress-bar"
+            >
+              <div className="goal-progress-text">{goal2Progress}%</div>
             </div>
           </div>
         )}
         {goals[2] && (
-          <div className="goal-container">
+          <div className=" goal-container">
             <div>
               <h2>{goals[2].goalName}</h2>
               <p>${goals[2].goalAmount.toLocaleString("en-US")}</p>
@@ -55,7 +52,6 @@ export default function Goal({
             <div
               style={{
                 backgroundImage: `conic-gradient(#213547 0deg ${goal3Angle}deg, #abc4aa ${goal3Angle}deg)`,
-                marginTop: "2rem",
               }}
               className="goal-progress-bar"
             >
