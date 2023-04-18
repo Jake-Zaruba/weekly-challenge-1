@@ -72,7 +72,7 @@ export default function Deposits({
             {goals[2] && <div className="legend-icon"></div>}
             {goals[2] && <span>{goals[2]?.goalName}</span>}
             {totalDeposits > 0 && <div className="legend-icon"></div>}
-            {totalDeposits > 0 && <span>None</span>}
+            {totalDeposits > 0 && <span>Savings</span>}
           </div>
         </div>
         <BarChart
