@@ -14,26 +14,29 @@ export default function Goal({
   return (
     <>
       <div className="goals">
-        {goals[0] && (
-          <div className="goal-container">
-            <div>
-              <h2>{goals[0].goalName}</h2>
-              <p>${goals[0].goalAmount.toLocaleString("en-US")}</p>
+        {goals[0] &&
+          (goal1Sum >= goals[0].amount ? (
+            <div className="goal-container">
+              <div>
+                <h2>{goals[0].goalName}</h2>
+                <p>${goals[0].goalAmount.toLocaleString("en-US")}</p>
+              </div>
+              <h2>
+                Remaining balance: $
+                {(goals[0].goalAmount - goal1Sum).toLocaleString("en-US")}
+              </h2>
+              <div
+                style={{
+                  backgroundImage: `conic-gradient(#213547 0deg ${goal1Angle}deg, #abc4aa ${goal1Angle}deg)`,
+                }}
+                className="goal-progress-bar"
+              >
+                <div className="goal-progress-text">{goal1Progress}%</div>
+              </div>
             </div>
-            <h2>
-              Remaining balance: $
-              {(goals[0].goalAmount - goal1Sum).toLocaleString("en-US")}
-            </h2>
-            <div
-              style={{
-                backgroundImage: `conic-gradient(#213547 0deg ${goal1Angle}deg, #abc4aa ${goal1Angle}deg)`,
-              }}
-              className="goal-progress-bar"
-            >
-              <div className="goal-progress-text">{goal1Progress}%</div>
-            </div>
-          </div>
-        )}
+          ) : (
+            <h2>Goal complete!</h2>
+          ))}
         {goals[1] && (
           <div className="goal-container">
             <div>
